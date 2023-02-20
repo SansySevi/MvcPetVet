@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sandra Sevilleja Gonzalez">
+    <title>@ViewData["Title"] - MvcVetPet</title>
+
+    <!--Bootstrap core CSS* -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+	<link href="~/css/NavbarStyleSheet.css" rel="stylesheet" />
+    <link href="~/css/cover.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    @if (IsSectionDefined("home"))
+    {
+        //ALGUNA VISTA ESTA ESCRIBIENDO EN HOME
+        @RenderSection("home", false)
+    }
+    else
+    {
+        //CODIGO ESTATICO EN LAYOUT
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Noticias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    }
+
+    <main>
+        <div class="mainer">
+
+            @RenderBody()
+
+        </div>
+    </main>
+
+    
+
+    <script src="~/lib/jquery/js/jquery-3.6.3.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
