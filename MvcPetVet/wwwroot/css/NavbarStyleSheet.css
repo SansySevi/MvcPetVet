@@ -44,3 +44,8 @@ button.navbar-toggler {
     height: 56px;
     border: none;
 }
+
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
