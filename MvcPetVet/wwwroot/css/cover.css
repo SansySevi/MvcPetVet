@@ -28,11 +28,6 @@ a {
         text-decoration: none;
     }
 
-textarea, input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
-    -webkit-appearance: none;
-    -moz-appearance: caret;
-}
-
 p {
     margin-bottom: 24px;
     line-height: 24px;
@@ -156,7 +151,7 @@ h4 {
 
         .thumb-box2 strong span {
             z-index: 1;
-            font: 16px 'Roboto Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font: 21px 'Roboto Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif;
             position: relative;
             color: #ffffff;
             background: #e9b756;
@@ -168,7 +163,7 @@ h4 {
             height: 1px;
             top: 50%;
             left: 0;
-            background: #d2d2d2;
+            background: #7e7c7c;
             position: absolute;
             content: '';
         }
@@ -187,11 +182,12 @@ h4 {
     }
 
 figure.wow.fadeInUp.animated {
-    margin-top: -69px;
+    margin-top: -54px;
 }
 
 .thumb-box2 figure.wow.fadeInUp.animated img {
     max-height: 336px;
+    filter: drop-shadow(0 9px 13px rgba(0, 0, 0, 0.7));
 }
 
 /*.thumb-box3 {
@@ -292,6 +288,8 @@ figure.wow.fadeInUp.animated {
         .thumb-pad1 figure img {
             border-radius: 100%;
             width: 100%;
+            background-color: #f5e6c9;
+            /*background-color: #dbd0be;*/
         }
 
     .thumb-pad1 .thumbnail .caption {
@@ -321,318 +319,6 @@ figure.wow.fadeInUp.animated {
                 position: absolute;
                 content: '';
             }
-
-.thumb-pad2 {
-    margin: 0;
-    text-align: center;
-}
-
-    .thumb-pad2 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad2 .thumbnail .caption {
-            padding: 0;
-        }
-
-            .thumb-pad2 .thumbnail .caption hr {
-                border-top: 3px solid #626262;
-                margin: 28px 0 16px 0;
-            }
-
-            .thumb-pad2 .thumbnail .caption a {
-                font: 300 30px 'Roboto Condensed';
-                color: #df9e5d;
-                text-transform: uppercase;
-                -webkit-transition: all 0.25s;
-                -o-transition: all 0.25s;
-                transition: all 0.25s;
-            }
-
-                .thumb-pad2 .thumbnail .caption a:hover {
-                    color: #626262;
-                }
-
-            .thumb-pad2 .thumbnail .caption p {
-                padding: 0 25px;
-            }
-
-    .thumb-pad2 figure {
-        margin: 0 0 34px 0;
-    }
-
-        .thumb-pad2 figure img {
-            width: 100%;
-        }
-
-.thumb-pad3 {
-    margin: 0 0 30px 0;
-    padding: 0;
-    text-align: center;
-}
-
-    .thumb-pad3 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad3 .thumbnail .caption {
-            padding: 0;
-        }
-
-            .thumb-pad3 .thumbnail .caption a {
-                font: 18px 'Roboto Condensed';
-                color: #ffffff;
-                margin-bottom: 25px;
-                display: inline-block;
-                -webkit-transition: all 0.25s;
-                -o-transition: all 0.25s;
-                transition: all 0.25s;
-            }
-
-                .thumb-pad3 .thumbnail .caption a:hover {
-                    color: #df9e5d;
-                }
-
-    .thumb-pad3 figure {
-        margin: 0 0 33px 0;
-    }
-
-        .thumb-pad3 figure img {
-            width: 100%;
-        }
-
-.thumb-pad4 {
-    margin: 0;
-    overflow: hidden;
-}
-
-    .thumb-pad4 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad4 .thumbnail .caption {
-            padding: 0;
-            overflow: hidden;
-        }
-
-            .thumb-pad4 .thumbnail .caption p {
-                margin-bottom: 33px;
-            }
-
-    .thumb-pad4 figure {
-        margin: 0 0 36px 0;
-    }
-
-        .thumb-pad4 figure img {
-            width: 100%;
-        }
-
-.thumb-pad5 {
-    margin: 0 0 40px 0;
-    overflow: hidden;
-    text-align: left;
-}
-
-    .thumb-pad5 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad5 .thumbnail .caption {
-            padding: 0;
-            overflow: hidden;
-        }
-
-    .thumb-pad5 figure {
-        margin: 0 30px 0 0;
-        float: left;
-    }
-
-        .thumb-pad5 figure img {
-            width: 100%;
-        }
-
-.thumb-pad5-1 {
-    margin: 0 0 40px 0;
-    overflow: hidden;
-    text-align: left;
-}
-
-    .thumb-pad5-1 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad5-1 .thumbnail .caption {
-            padding: 0;
-            overflow: hidden;
-        }
-
-            .thumb-pad5-1 .thumbnail .caption p {
-                font: 12px/24px 'Roboto Condensed';
-                color: #848484;
-            }
-
-    .thumb-pad5-1 figure {
-        margin: 0 30px 0 0;
-        float: left;
-    }
-
-        .thumb-pad5-1 figure img {
-            width: 100%;
-        }
-
-.thumb-pad6 {
-    overflow: hidden;
-    text-align: left;
-    margin: 0 0 30px 0;
-}
-
-    .thumb-pad6 .thumbnail {
-        position: relative;
-        padding: 0;
-        margin: 0;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        background: none;
-    }
-
-        .thumb-pad6 .thumbnail .badge {
-            width: 70px;
-            height: 70px;
-            background: #53afee;
-            border-radius: 100%;
-            text-align: center;
-            line-height: 64px;
-            color: #ffffff;
-            font-size: 45px;
-            float: left;
-            margin-right: 30px;
-        }
-
-        .thumb-pad6 .thumbnail .caption {
-            padding: 0;
-            overflow: hidden;
-        }
-
-.thumb-pad7 {
-    margin: 0 0 44px 0;
-}
-
-    .thumb-pad7 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad7 .thumbnail .caption {
-            padding: 0;
-            overflow: hidden;
-        }
-
-            .thumb-pad7 .thumbnail .caption p {
-                font: 12px/24px 'Roboto Condensed';
-                color: #848484;
-                margin-bottom: 0;
-            }
-
-            .thumb-pad7 .thumbnail .caption h5 {
-                margin-bottom: 15px;
-            }
-
-    .thumb-pad7 figure {
-        margin: 0 0 21px 0;
-    }
-
-        .thumb-pad7 figure img {
-            width: 100%;
-        }
-
-.thumb-pad8 {
-    margin: 0 0 30px 0;
-    padding: 15px 15px 22px 15px;
-    border: 1px solid #edeaea;
-    text-align: left;
-}
-
-    .thumb-pad8 .thumbnail {
-        position: relative;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        background: none;
-    }
-
-        .thumb-pad8 .thumbnail .caption {
-            padding: 0;
-        }
-
-            .thumb-pad8 .thumbnail .caption .lnk {
-                font: 20px/20px 'Roboto Condensed';
-                color: #7d8286;
-                text-transform: none;
-                -webkit-transition: all 0.25s;
-                -o-transition: all 0.25s;
-                transition: all 0.25s;
-            }
-
-                .thumb-pad8 .thumbnail .caption .lnk:hover {
-                    color: #53afee;
-                }
-
-            .thumb-pad8 .thumbnail .caption p {
-                font: 13px/18px 'Roboto Condensed';
-                color: #8b9196;
-                margin: 0;
-            }
-
-            .thumb-pad8 .thumbnail .caption hr {
-                border-top: 1px solid #dedfe0;
-                margin: 12px 0 13px 0;
-            }
-
-    .thumb-pad8 figure {
-        margin: 0 0 22px 0;
-    }
-
-        .thumb-pad8 figure img {
-            width: 100%;
-        }
 
 /* btn
 ========================================================*/
@@ -732,263 +418,6 @@ figure.wow.fadeInUp.animated {
         background: #414141;
         text-decoration: none;
     }
-
-/* list
-========================================================*/
-.list1 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-    .list1 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 14px 0;
-    }
-
-        .list1 li a {
-            color: #707070;
-            font: italic 16px 'Roboto Condensed';
-            -webkit-transition: all 0.25s;
-            -o-transition: all 0.25s;
-            transition: all 0.25s;
-        }
-
-            .list1 li a:hover {
-                color: #df9e5d;
-            }
-
-.list1-1 {
-    margin: 0;
-    padding: 0 0 9px 0;
-    list-style: none;
-}
-
-    .list1-1 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 14px 0;
-    }
-
-        .list1-1 li a {
-            color: #3e3d3d;
-            font: 18px 'Roboto Condensed';
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            -webkit-transition: all 0.25s;
-            -o-transition: all 0.25s;
-            transition: all 0.25s;
-        }
-
-            .list1-1 li a:hover {
-                color: #df9e5d;
-            }
-
-.list2 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: left;
-}
-
-    .list2 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 18px 0;
-        overflow: hidden;
-    }
-
-        .list2 li p {
-            color: #242323;
-            font-size: 16px;
-        }
-
-        .list2 li strong {
-            font-size: 30px;
-            color: #242323;
-            float: left;
-            margin-right: 19px;
-        }
-
-.list3 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-    .list3 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 0 86px;
-        float: left;
-    }
-
-        .list3 li:first-child {
-            margin: 0;
-        }
-
-        .list3 li a {
-            display: inline-block;
-            -webkit-transition: all 0.25s;
-            -o-transition: all 0.25s;
-            transition: all 0.25s;
-        }
-
-            .list3 li a:hover {
-                opacity: 0.5;
-                filter: alpha(opacity=50);
-            }
-
-.list4 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-
-    .list4 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin-bottom: 35px;
-    }
-
-        .list4 li time {
-            font: 300 30px/30px 'Roboto Condensed';
-            text-transform: uppercase;
-            color: #df9e5d;
-            display: inline-block;
-            margin: 0 0 10px 0;
-        }
-
-        .list4 li p {
-            margin-bottom: 0;
-        }
-
-.list5 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: center;
-}
-
-    .list5 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 7px 0;
-        overflow: hidden;
-    }
-
-        .list5 li figure {
-            margin: 0 0 11px 0;
-        }
-
-        .list5 li a {
-            font: 300 18px 'Roboto Condensed';
-            color: #3e3d3d;
-            display: inline-block;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            -webkit-transition: all 0.25s;
-            -o-transition: all 0.25s;
-            transition: all 0.25s;
-        }
-
-            .list5 li a:hover {
-                color: #df9e5d;
-            }
-
-.list6 {
-    margin: 0 0 18px 0;
-    padding: 0;
-    list-style: none;
-}
-
-    .list6 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 14px 0;
-        padding: 0 0 13px 0;
-        border-bottom: 1px solid #c7c7c7;
-    }
-
-        .list6 li .title {
-            font: 18px 'Roboto Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #9b9b9b;
-            margin-bottom: 17px;
-            padding-left: 30px;
-            background: url(../img/list_arrow.png) left 9px no-repeat;
-        }
-
-        .list6 li p {
-            margin-bottom: 0;
-        }
-
-        .list6 li:last-child {
-            border-bottom: none;
-        }
-
-.list7 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-
-    .list7 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        overflow: hidden;
-        margin-bottom: 35px;
-    }
-
-        .list7 li span {
-            width: 70px;
-            height: 70px;
-            position: relative;
-            border-radius: 100%;
-            background: #df9e5d;
-            color: #ffffff;
-            font: bold 36px/68px 'Roboto Condensed';
-            display: inline-block;
-            float: left;
-            margin: 0 22px 0 0;
-            text-align: center;
-        }
-
-        .list7 li h4 {
-            padding-top: 10px;
-        }
-
-        .list7 li p {
-            margin: 12px 0 0 0;
-        }
-
-.list8 {
-    margin: 0 0 53px 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-}
-
-    .list8 li {
-        font-size: 14px;
-        line-height: 1.428571429;
-        margin: 0 0 24px 0;
-    }
-
-        .list8 li p {
-            margin-bottom: 0;
-        }
-
-        .list8 li .description {
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-            color: #242323;
-            margin-bottom: 10px;
-        }
-
 
 /*========================================================
                     map
@@ -1117,6 +546,11 @@ footer {
         padding: 0;
     }
 }
+
+
+/*RESPONSIVO HASTA 625*/
+
+
 /*===========================================================================================================================*/
 /*===========================================================================================================================*/
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1224,5 +658,40 @@ footer {
     .col-xs-6 {
         width: 100%;
         float: none;
+    }
+}
+
+
+/* RESPONSIVE IMG INDEX
+========================================================*/
+
+@media (max-width: 1200px) {
+    .thumb-box2.contain {
+        flex-wrap: wrap;
+    }
+
+    figure.wow.fadeInUp.animated {
+        margin-top: -157px;
+        margin-left: 475px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    figure.wow.fadeInUp.animated {
+        margin-top: -165px;
+        margin-left: 353px;
+    }
+
+    .thumb-box2 figure.wow.fadeInUp.animated img {
+        max-height: 282px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    figure.wow.fadeInUp.animated {
+        margin-top: 0px;
+        margin-left: 0px;
     }
 }
