@@ -117,9 +117,8 @@ h4 {
 .thumb-box2 {
     overflow: hidden;
     text-align: center;
-    /*background: #7c7771;*/
     background: #e9b756;
-    padding: 61px 0 47px 0;
+    padding: 49px 0 18px 0
 }
 
     .thumb-box2 .title {
@@ -155,24 +154,45 @@ h4 {
         display: block;
     }
 
-    .thumb-box2 strong span {
-        z-index: 1;
-        font: 16px 'Roboto Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif;
-        position: relative;
-        color: #df9e5d;
-        background: #ffffff;
-        padding: 0 15px;
+        .thumb-box2 strong span {
+            z-index: 1;
+            font: 16px 'Roboto Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            position: relative;
+            color: #ffffff;
+            background: #e9b756;
+            padding: 0 15px;
+        }
+
+        .thumb-box2 strong:after {
+            width: 100%;
+            height: 1px;
+            top: 50%;
+            left: 0;
+            background: #d2d2d2;
+            position: absolute;
+            content: '';
+        }
+
+    .thumb-box2 p.wow.fadeInUp.animated {
+        color: white;
+        font-size: 18pt;
     }
 
-    .thumb-box2 strong:after {
-        width: 100%;
-        height: 1px;
-        top: 50%;
-        left: 0;
-        background: #d2d2d2;
-        position: absolute;
-        content: '';
+
+
+    .thumb-box2.contain {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
     }
+
+figure.wow.fadeInUp.animated {
+    margin-top: -69px;
+}
+
+.thumb-box2 figure.wow.fadeInUp.animated img {
+    max-height: 336px;
+}
 
 /*.thumb-box3 {
     overflow: hidden;
@@ -246,311 +266,6 @@ h4 {
             position: absolute;
             content: '';
         }*/
-
-/*.thumb-box4 {
-    overflow: hidden;
-    padding: 60px 0 34px 0;
-}
-
-    .thumb-box4 figure {
-        float: left;
-        margin-right: 10px;
-    }
-
-    .thumb-box4 .title {
-        font: 300 14px/14px 'Roboto Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: #df9e5d;
-        text-transform: uppercase;
-        margin-bottom: 0;
-    }
-
-.thumb-box5 {
-    background: #2c2c2c;
-    overflow: hidden;
-    text-align: center;
-    padding: 61px 0 16px 0;
-}
-
-    .thumb-box5 .title {
-        font: 48px/48px 'Six Caps';
-        color: #ffffff;
-        margin-bottom: 43px;
-        position: relative;
-    }
-
-        .thumb-box5 .title span {
-            position: relative;
-            z-index: 1;
-            font: 48px/48px 'Six Caps';
-            color: #ffffff;
-            letter-spacing: 1px;
-            padding: 0 100px;
-            background: #2c2c2c;
-        }
-
-        .thumb-box5 .title:after {
-            width: 100%;
-            height: 1px;
-            top: 50%;
-            left: 0;
-            background: #4c4c4c;
-            position: absolute;
-            content: '';
-        }
-
-.thumb-box6 {
-    padding: 70px 0 0 0;
-    overflow: hidden;
-    text-align: center;
-}
-
-    .thumb-box6 .col-lg-4 {
-        margin-bottom: 43px;
-    }
-
-.thumb-box7 {
-    overflow: hidden;
-    text-align: center;
-}
-
-    .thumb-box7 .title {
-        font: 48px/48px 'Six Caps';
-        color: #3e3d3d;
-        margin-bottom: 43px;
-        position: relative;
-        text-transform: uppercase;
-    }
-
-        .thumb-box7 .title span {
-            position: relative;
-            z-index: 1;
-            font: 48px/48px 'Six Caps';
-            color: #3e3d3d;
-            letter-spacing: 1px;
-            padding: 0 134px;
-            background: #ffffff;
-        }
-
-        .thumb-box7 .title:after {
-            width: 100%;
-            height: 1px;
-            top: 50%;
-            left: 0;
-            background: #d2d2d2;
-            position: absolute;
-            content: '';
-        }
-
-    .thumb-box7 strong {
-        width: 101px;
-        height: 101px;
-        border-radius: 100%;
-        background: #df9e5d;
-        text-align: center;
-        line-height: 100px;
-        font-size: 48px;
-        color: #ffffff;
-        margin: -45px 0 30px 0;
-    }
-
-    .thumb-box7 .box {
-        background: #f2f2f2;
-        margin: 45px 0 0 0;
-        padding: 0 50px 42px 50px;
-    }
-
-        .thumb-box7 .box .title1 {
-            font: 36px 'Six Caps';
-            color: #3e3d3d;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-            letter-spacing: 1px;
-        }
-
-    .thumb-box7 .col-lg-6 {
-        margin-bottom: 80px;
-    }
-
-.thumb-box8 {
-    background: #df9e5d;
-    overflow: hidden;
-    text-align: center;
-    padding: 61px 0 34px 0;
-}
-
-    .thumb-box8 .title {
-        font: 48px/48px 'Six Caps';
-        color: #ffffff;
-        margin-bottom: 43px;
-        position: relative;
-        text-transform: uppercase;
-    }
-
-        .thumb-box8 .title span {
-            position: relative;
-            z-index: 1;
-            font: 48px/48px 'Six Caps';
-            color: #ffffff;
-            letter-spacing: 1px;
-            padding: 0 90px;
-            background: #df9e5d;
-        }
-
-        .thumb-box8 .title:after {
-            width: 100%;
-            height: 1px;
-            top: 50%;
-            left: 0;
-            background: #4c4c4c;
-            position: absolute;
-            content: '';
-        }
-
-.thumb-box9 {
-    overflow: hidden;
-    text-align: center;
-    padding: 0 0 37px 0;
-    border-bottom: 1px solid #dadada;
-}
-
-    .thumb-box9 .title {
-        font: 48px/48px 'Six Caps';
-        margin-bottom: 43px;
-        position: relative;
-    }
-
-        .thumb-box9 .title span {
-            position: relative;
-            z-index: 1;
-            font: 48px/48px 'Six Caps';
-            color: #3e3d3d;
-            letter-spacing: 1px;
-            padding: 0 126px;
-            background: #ffffff;
-        }
-
-        .thumb-box9 .title:after {
-            width: 100%;
-            height: 1px;
-            top: 50%;
-            left: 0;
-            background: #d2d2d2;
-            position: absolute;
-            content: '';
-        }
-
-.thumb-box10 {
-    overflow: hidden;
-    text-align: center;
-    padding: 73px 0 0 0;
-}
-
-    .thumb-box10 figure {
-        margin-bottom: 25px;
-    }
-
-        .thumb-box10 figure img {
-            width: 100%;
-        }
-
-    .thumb-box10 .description {
-        font-size: 16px;
-        line-height: 30px;
-        font-style: italic;
-        color: #707070;
-    }
-
-    .thumb-box10 .col-lg-6 {
-        margin-bottom: 50px;
-    }
-
-.thumb-box11 {
-    overflow: hidden;
-    padding: 82px 0 0 0;
-    text-align: center;
-}
-
-    .thumb-box11 .title {
-        font: 48px/48px 'Six Caps';
-        margin-bottom: 43px;
-        position: relative;
-    }
-
-        .thumb-box11 .title span {
-            position: relative;
-            z-index: 1;
-            font: 48px/48px 'Six Caps';
-            color: #3e3d3d;
-            letter-spacing: 1px;
-            padding: 0 70px;
-            background: #ffffff;
-        }
-
-        .thumb-box11 .title:after {
-            width: 100%;
-            height: 1px;
-            top: 50%;
-            left: 0;
-            background: #d2d2d2;
-            position: absolute;
-            content: '';
-        }
-
-.thumb-box12 {
-    overflow: hidden;
-    text-align: center;
-}
-
-    .thumb-box12 .title {
-        font: 48px/48px 'Six Caps';
-        margin-bottom: 43px;
-        position: relative;
-    }
-
-        .thumb-box12 .title span {
-            position: relative;
-            z-index: 1;
-            font: 48px/48px 'Six Caps';
-            color: #3e3d3d;
-            letter-spacing: 1px;
-            padding: 0 70px;
-            background: #ffffff;
-        }
-
-        .thumb-box12 .title:after {
-            width: 100%;
-            height: 1px;
-            top: 50%;
-            left: 0;
-            background: #d2d2d2;
-            position: absolute;
-            content: '';
-        }
-
-.thumb-box13 {
-    overflow: hidden;
-    text-align: center;
-    padding: 57px 0 92px 0;
-}
-
-    .thumb-box13 .title {
-        font: 252px/1em 'Roboto Condensed';
-        color: #df9e5d;
-        letter-spacing: 2px;
-    }
-
-    .thumb-box13 .description {
-        font: 72px/1em 'Six Caps';
-        color: #3e3d3d;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-top: -10px;
-        margin-bottom: 60px;
-    }
-
-    .thumb-box13 p {
-        font-size: 18px;
-    }*/
 
 /* thumbs
 ========================================================*/
