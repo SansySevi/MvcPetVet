@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url("../images/french-bulldog-small-black-puppy-pets-cute-animals-dogs.jpg");
+    background-image: url("../images/log_back.jpg");
     background-size: cover;
     background-attachment: fixed;
     overflow: hidden;
@@ -195,8 +195,100 @@ svg {
 =========================================================*/
 
 
+@media (max-width: 1200px) {
+    body {
+        /*background: linear-gradient(90deg, #fcd07f, #2b657e);*/
+        background: white;
+    }
 
-@media (max-width: 991px) and (min-width:950px) {
+    /*.container {
+        margin: 0;
+        padding: 0;
+    }*/
+
+    .screen {
+        width: 100%;
+        background-image: url("../images/log_back.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        overflow: hidden;
+        background-position-x: center;
+    }
+
+    .screen__background__shape1 {
+        display: none;
+    }
+
+    .screen__background__shape2 {
+        height: 220px;
+        width: 220px;
+        top: -123px;
+        right: 27px;
+    }
+
+    .screen__background__shape3 {
+        background: linear-gradient(270deg, #dba63c, #fed383);
+        height: 924px;
+        width: 507px;
+        top: 135px;
+        right: -40px;
+    }
+
+    .screen__background__shape4 {
+        display: none;
+    }
+
+    .login {
+        margin-left: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .login {
+        margin-left: 13rem;
+        margin-top: 7.5rem;
+    }
+
+    .login__input {
+        width: 100%;
+    }
+
+    .social-login {
+        display: none
+    }
+}
+
+@media (max-width: 546px) {
+
+    .login {
+        margin-left: 30%;
+        margin-top: 8.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .login {
+        margin-left: 0rem;
+        margin-top: 8rem;
+    }
+}
+
+@media (max-width: 474px) {
+
+    .screen {
+        background-color:white;
+        background-image: none;
+
+    }
+}
+
+
+
+
+
+/*@media (max-width: 991px) and (min-width:950px) {
     container {
         margin-right: -84px;
     }
@@ -206,14 +298,14 @@ svg {
     body {
         background: linear-gradient(90deg, #fcd07f, #2b657e);
     }
-}
+}*/
 
 
 /* RESPONSIVE AXIS Y
 ========================================================*/
 
 
-@media (max-height: 665px) {
+/*@media (max-height: 665px) {
     .screen {
         height: 506px;
         width: 360px;
@@ -236,7 +328,7 @@ svg {
     .container {
         margin-top: 4%;
     }
-}
+}*/
 
 
 /*1400 EJE x PRIMER CORTE DE ALTURA
