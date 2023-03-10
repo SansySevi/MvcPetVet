@@ -5,29 +5,6 @@
     ViewData["Title"] = "Login";
 }
 
-@*<h1>Login</h1>
-
-<h4>Usuario</h4>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <input type="text" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Contrasenia" class="form-control" />
-                <span asp-validation-for="Contrasenia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
-
-
 <div class="container">
     <div class="screen">
         <div class="screen__content">
@@ -59,11 +36,11 @@
                 </button>
             </form>
             <div class="social-login">
-                <h6> ¿Aún no te has unido a nosotros? 
-                    <a class="nav-link" asp-controller="Usuarios" asp-action="Register">Registrate</a>
+                <h6> ¿Aún no estas con nosotros? 
                 </h6>
                 <div class="social-icons">
-                    <a class="social-login__icon" asp-controller="Home" asp-action="Index">Volver</a>
+                    <a class="social-login__icon" asp-controller="Usuarios" asp-action="Register">Registrar</a>
+                    @*<a class="social-login__icon" asp-controller="Home" asp-action="Index">Volver</a>*@
                 </div>
             </div>
         </div>

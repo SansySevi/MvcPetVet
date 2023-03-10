@@ -288,8 +288,9 @@ figure.wow.fadeInUp.animated {
         .thumb-pad1 figure img {
             border-radius: 100%;
             width: 100%;
-            background-color: #f5e6c9;
+            /*background-color: #f5e6c9;*/
             /*background-color: #dbd0be;*/
+            background-color: #afaaa0
         }
 
     .thumb-pad1 .thumbnail .caption {
