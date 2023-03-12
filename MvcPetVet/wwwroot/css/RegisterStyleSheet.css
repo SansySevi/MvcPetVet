@@ -18,8 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /*min-height: 100vh;*/
-    margin-top: 8%;
+    min-height: 100vh;
 }
 
 .screen {
@@ -28,6 +27,7 @@ body {
     height: 600px;
     width: 360px;
     box-shadow: 0px 0px 24px #8b867e;
+    border-radius: 2%;
 }
 
 .screen__content {
@@ -88,10 +88,15 @@ body {
     border-radius: 60px;
 }
 
+.container_form {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .login {
     width: 320px;
     padding: 30px;
-    padding-top: 156px;
+    padding-top: 68px;
 }
 
 .login__field {
@@ -159,13 +164,18 @@ svg {
     fill: #458ead;
 }
 
+    svg.svg_sup {
+        height: 57px;
+        padding: 9px;
+    }
+
 
 .social-login {
     position: absolute;
     height: 121px;
     width: 160px;
     text-align: center;
-    bottom: 0px;
+    bottom: -19px;
     right: 0px;
     color: #fff;
 }
@@ -198,13 +208,8 @@ svg {
 @media (max-width: 1200px) {
     body {
         /*background: linear-gradient(90deg, #fcd07f, #2b657e);*/
-        background: white;
+        background: #c7d1d5;
     }
-
-    /*.container {
-        margin: 0;
-        padding: 0;
-    }*/
 
     .screen {
         width: 100%;
@@ -213,6 +218,7 @@ svg {
         background-attachment: fixed;
         overflow: hidden;
         background-position-x: center;
+        height: 80vh;
     }
 
     .screen__background__shape1 {
@@ -223,23 +229,26 @@ svg {
         height: 220px;
         width: 220px;
         top: -123px;
-        right: 27px;
+        right: 445px;
     }
 
     .screen__background__shape3 {
         background: linear-gradient(270deg, #dba63c, #fed383);
-        height: 924px;
-        width: 507px;
-        top: 135px;
-        right: -40px;
+        height: 1040px;
+        width: 609px;
+        top: 236px;
+        right: 585px;
+        transform: rotate(117deg);
     }
 
     .screen__background__shape4 {
-        display: none;
+        top: 457px;
+        right: 23px;
     }
 
     .login {
-        margin-left: 50%;
+        margin-left: 1em;
+        margin-top: 9em;
     }
 }
 
@@ -254,9 +263,11 @@ svg {
         width: 100%;
     }
 
-    .social-login {
-        display: none
+    .screen {
+        background-color: white;
+        background-image: none;
     }
+
 }
 
 @media (max-width: 546px) {
@@ -271,20 +282,17 @@ svg {
 
     .login {
         margin-left: 0rem;
-        margin-top: 8rem;
+        margin-top: 4rem;
+    }
+
+    .screen__background__shape2 {
+        right: 2px;
+    }
+
+    .social-login {
+        right: 36px;
     }
 }
-
-@media (max-width: 474px) {
-
-    .screen {
-        background-color: white;
-        background-image: none;
-    }
-}
-
-
-
 
 
 /*@media (max-width: 991px) and (min-width:950px) {

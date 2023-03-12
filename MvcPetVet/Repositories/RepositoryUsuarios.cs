@@ -31,8 +31,10 @@ namespace MvcPetVet.Repositories
             Usuario user = new Usuario();
             user.IdUsuario = this.GetMaxIdUsuario();
             user.Apodo = apodo;
+            user.Nombre = "";
             user.Email = email;
             user.Pass = password;
+            user.Imagen = "default_img.png";
 
             //user.Imagen = imagen;
             //CADA USUARIO TENDRA UN SALT DIFERENTE

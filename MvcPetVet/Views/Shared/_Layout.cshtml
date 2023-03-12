@@ -11,6 +11,7 @@
 
     <!-- Custom styles for this template -->
     <link href="~/css/NavbarStyleSheet.css" rel="stylesheet" />
+    <link href="~/css/LayoutStyleSheet.css" rel="stylesheet" />
     <link href="~/css/cover.css" rel="stylesheet" />
 
 </head>
@@ -24,38 +25,38 @@
     }
     else
     {
-        //CODIGO ESTATICO EN LAYOUT
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="~/images/egyptian_animal_symbol.png" alt="Bootstrap" width="30" height="24">
-                    Vet Care
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+           //CODIGO ESTATICO EN LAYOUT
+        <header class="cd-header nav-bar">
+            <div class="header-wrapper">
+                <div class="logo-wrap">
+                    <a href="#" class="hover-target">
+                        <img src="~/images/egyptian_animal_symbol.png" alt="Bootstrap" width="30" height="24">
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Servicios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Noticias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Usuarios" asp-action="Login">Login</a>
-                        </li>
-                    </ul>
+                        <span>Vet</span>Care
+                    </a>
+                </div>
+                <div class="nav-but-wrap">
+                    <div class="menu-icon hover-target">
+                        <span class="menu-icon__line menu-icon__line-left"></span>
+                        <span class="menu-icon__line"></span>
+                        <span class="menu-icon__line menu-icon__line-right"></span>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </header>
+
+        <div class="nav">
+            <div class="nav__content">
+                <ul class="nav__list">
+                    <li class="nav__list-item active-nav"><a href="#" class="hover-target">home</a></li>
+                    <li class="nav__list-item"><a href="#" class="hover-target">servicios</a></li>
+                    <li class="nav__list-item"><a href="#" class="hover-target">sobre nosotros</a></li>
+                    <li class="nav__list-item"><a asp-controller="Usuarios" asp-action="Login" class="hover-target">login</a></li>
+                </ul>
+            </div>
+        </div>
+
+
 
     }
 
@@ -89,15 +90,15 @@
                         </div>
                     </div>
                     @*<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeInUp animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                        <div class="maxheight" style="height: 156px;">
-                            <div class="box_inner">
-                                <p class="title">Follow Us</p>
-                                <ul class="follow_icon">
-                                    <li><a href="#" class="fa fa-facebook"></a></li>
-                                    <li><a href="#" class="fa fa-instagram"></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="maxheight" style="height: 156px;">
+                    <div class="box_inner">
+                    <p class="title">Follow Us</p>
+                    <ul class="follow_icon">
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                    </div>
+                    </div>
                     </div>*@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                         <div class="indent maxheight" style="height: 156px;">
@@ -110,19 +111,59 @@
                 </div>
             </div>
         </div>
-        @*<div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
-                    <p></p>
-                </div>
-            </div>
-        </div>*@
+
     </footer>
 
     <script src="~/lib/jquery/dist/jquery-3.6.3.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @*<script src="~/js/site.js" asp-append-version="true"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+
+            // Function to change the nav-bar on scroll
+            $(window).scroll(function () {
+                $(window).scrollTop() >= 110
+                    ? $(".nav-bar").addClass("scrolled")
+                    : $(".nav-bar").removeClass("scrolled");
+            });
+
+        });
+
+        (function ($) {
+            "use strict";
+
+            //Navigation
+
+            var app = (function () {
+                var body = undefined;
+                var menu = undefined;
+                var menuItems = undefined;
+                var init = function init() {
+                    body = document.querySelector("body");
+                    menu = document.querySelector(".menu-icon");
+                    menuItems = document.querySelectorAll(".nav__list-item");
+                    applyListeners();
+                };
+                var applyListeners = function applyListeners() {
+                    menu.addEventListener("click", function () {
+                        return toggleClass(body, "nav-active");
+                    });
+                };
+                var toggleClass = function toggleClass(element, stringClass) {
+                    if (element.classList.contains(stringClass))
+                        element.classList.remove(stringClass);
+                    else element.classList.add(stringClass);
+                };
+                init();
+            })();
+
+
+        })(jQuery);
+
+
+    </script>
 </body>
 </html>
 

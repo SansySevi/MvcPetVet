@@ -1,6 +1,10 @@
 @import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700);
 @import url(//fonts.googleapis.com/css?family=Six+Caps);
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+@import url("https://fonts.googleapis.com/css?family=Orbitron:700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+
 /*========================================================
                     Main layout styles
 =========================================================*/
@@ -126,11 +130,16 @@ h4 {
         .thumb-box2 .title span {
             position: relative;
             z-index: 1;
-            font: 48px/48px 'Six Caps';
+             font: 48px/48px 'Six Caps'; 
             color: #ffffff;
-            letter-spacing: 1px;
+             letter-spacing: 1px; 
             padding: 0 40px;
             background: #e9b756;
+            /*font-family: "Montserrat";
+            text-transform: uppercase;
+            font-size: 52px;
+            line-height: 72px;
+            letter-spacing: 10px;*/
         }
 
         .thumb-box2 .title:after {
@@ -545,6 +554,7 @@ footer {
 @media (min-width: 1220px) {
     .container {
         padding: 0;
+        margin-top: 26px;
     }
 }
 

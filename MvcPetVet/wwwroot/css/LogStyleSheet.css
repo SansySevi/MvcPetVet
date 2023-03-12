@@ -96,7 +96,7 @@ body {
 .login {
     width: 320px;
     padding: 30px;
-    padding-top: 156px;
+    padding-top: 68px;
 }
 
 .login__field {
@@ -164,6 +164,11 @@ svg {
     fill: #458ead;
 }
 
+    svg.svg_sup {
+        height: 57px;
+        padding: 9px;
+    }
+
 
 .social-login {
     position: absolute;
@@ -230,9 +235,9 @@ svg {
     .screen__background__shape3 {
         background: linear-gradient(270deg, #dba63c, #fed383);
         height: 1040px;
-        width: 268px;
+        width: 359px;
         top: 261px;
-        right: 242px;
+        right: 153px;
     }
 
     .screen__background__shape4 {
@@ -256,11 +261,10 @@ svg {
     }
 
     .social-login {
-    height: 121px;
-    width: 160px;
-    bottom: 459px;
-    right: 60px;
-
+        height: 121px;
+        width: 160px;
+        bottom: 542px;
+        right: 60px;
     }
 }
 
@@ -276,16 +280,23 @@ svg {
 
     .login {
         margin-left: 0rem;
-        margin-top: 10rem;
+        margin-top: 4rem;
+    }
+
+    .screen__background__shape2 {
+        right: 2px;
+    }
+
+    .social-login {
+        right: 36px;
     }
 }
 
 @media (max-width: 474px) {
 
     .screen {
-        background-color:white;
+        background-color: white;
         background-image: none;
-
     }
 }
 
