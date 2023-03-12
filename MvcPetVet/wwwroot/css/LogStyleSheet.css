@@ -18,8 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /*min-height: 100vh;*/
-    margin-top: 8%;
+    min-height: 100vh;
 }
 
 .screen {
@@ -28,6 +27,7 @@ body {
     height: 600px;
     width: 360px;
     box-shadow: 0px 0px 24px #8b867e;
+    border-radius: 2%;
 }
 
 .screen__content {
@@ -86,6 +86,11 @@ body {
     top: 420px;
     right: 50px;
     border-radius: 60px;
+}
+
+.container_form {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .login {
@@ -198,13 +203,8 @@ svg {
 @media (max-width: 1200px) {
     body {
         /*background: linear-gradient(90deg, #fcd07f, #2b657e);*/
-        background: white;
+        background: #c7d1d5;
     }
-
-    /*.container {
-        margin: 0;
-        padding: 0;
-    }*/
 
     .screen {
         width: 100%;
@@ -213,6 +213,7 @@ svg {
         background-attachment: fixed;
         overflow: hidden;
         background-position-x: center;
+        height: 80vh;
     }
 
     .screen__background__shape1 {
@@ -228,10 +229,10 @@ svg {
 
     .screen__background__shape3 {
         background: linear-gradient(270deg, #dba63c, #fed383);
-        height: 924px;
-        width: 507px;
-        top: 135px;
-        right: -40px;
+        height: 1040px;
+        width: 268px;
+        top: 261px;
+        right: 242px;
     }
 
     .screen__background__shape4 {
@@ -255,7 +256,11 @@ svg {
     }
 
     .social-login {
-        display: none
+    height: 121px;
+    width: 160px;
+    bottom: 459px;
+    right: 60px;
+
     }
 }
 
@@ -271,7 +276,7 @@ svg {
 
     .login {
         margin-left: 0rem;
-        margin-top: 8rem;
+        margin-top: 10rem;
     }
 }
 

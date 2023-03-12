@@ -1,6 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using MvcPetVet.Data;
+using MvcPetVet.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+string connectionString =
+    builder.Configuration.GetConnectionString("SqlVetCareHome");
+builder.Services.AddTransient<RepositoryUsuarios>();
+builder.Services.AddDbContext<UsuariosContext>
+    (options => options.UseSqlServer(connectionString));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -2,13 +2,13 @@
 
 @{
     Layout = "_TemplateRegister";
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
 }
 
 <div class="container">
     <div class="screen">
         <div class="screen__content">
-            <form class="login" asp-action="Login">
+            <form class="login" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="login__field">
                     <i class="login__icon">
@@ -17,8 +17,8 @@
                             <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
                         </svg>
                     </i>
-                    <input asp-for="Nombre" class="login__input" placeholder="User name" />
-                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                    <input type="text" name="apodo" class="login__input" placeholder="Nombre Usuario" required />
+                    <span asp-validation-for="Apodo" class="text-danger"></span>
                 </div>
                 <div class="login__field">
                     <i class="login__icon">
@@ -27,7 +27,7 @@
                             <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
                         </svg>
                     </i>
-                    <input asp-for="Email" class="login__input" placeholder="Email" />
+                    <input type="text" name="email" class="login__input" placeholder="Email" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="login__field">
@@ -37,20 +37,18 @@
                             <path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" />
                         </svg>
                     </i>
-                    <input type="password" asp-for="Contrasenia" class="login__input" placeholder="Password">
-                    <span asp-validation-for="Contrasenia" class="text-danger"></span>
+                    <input type="password" name="password" class="login__input" placeholder="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <button class="button login__submit">
-                    <span class="button__text">Log In Now</span>
-                    <i class="button__icon fas fa-chevron-right"></i>
+                    <span class="button__text">Sing Up</span>
                 </button>
             </form>
             <div class="social-login">
-                <h6> ¿Aún no estas con nosotros? 
+                <h6> ¿Ya tienes cuenta? 
                 </h6>
                 <div class="social-icons">
-                    <a class="social-login__icon" asp-controller="Usuarios" asp-action="Register">Registrar</a>
-                    @*<a class="social-login__icon" asp-controller="Home" asp-action="Index">Volver</a>*@
+                    <a class="social-login__icon" asp-controller="Usuarios" asp-action="Login">Log In</a>
                 </div>
             </div>
         </div>
@@ -68,46 +66,5 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-
-
-
-
-
-
-
-@*<h1>Register</h1>
-
-<h4>Usuario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apodo" class="control-label"></label>
-                <input asp-for="Apodo" class="form-control" />
-                <span asp-validation-for="Apodo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contrasenia" class="control-label"></label>
-                <input asp-for="Contrasenia" class="form-control" />
-                <span asp-validation-for="Contrasenia" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>*@
 
 
