@@ -2,6 +2,43 @@
 using MvcPetVet.Data;
 using MvcPetVet.Models;
 
+#region TABLES
+
+//create table MASCOTAS(
+//	IDMASCOTA int primary key,
+//    NMASCOTA nvarchar(50),
+//	EDAD int,
+//	PESO int,
+//	RAZA nvarchar(50),
+//	IDUSUARIO int
+//)
+
+//create table CITAS(
+//	IDCITA int primary key,
+//    IDUSUARIO int,
+//    IDMASCOTA int,
+//    TIPO_CITA NVARCHAR(50),
+//	DIA_CITA DATETIME
+//)
+
+
+//create TABLE USUARIOS (
+//	IDUSUARIO INT PRIMARY KEY,
+//    APODO NVARCHAR(50) NOT NULL,
+//    NOMBRE NVARCHAR(50),
+//	EMAIL NVARCHAR(150) UNIQUE NOT NULL,
+//    SALT NVARCHAR(MAX) NOT NULL,
+//    PASS NVARCHAR(50) NOT NULL,
+//    PASS_CIFRADA NVARCHAR(MAX) NOT NULL,
+//    IMAGEN NVARCHAR(MAX) DEFAULT 'default_image.jpg'
+//)
+
+#endregion
+
+#region PROCEDURES
+
+#endregion
+
 namespace MvcPetVet.Repositories
 {
     public class RepositoryUsuarios
@@ -49,13 +86,22 @@ namespace MvcPetVet.Repositories
         }
 
         public Usuario LogInUser
-            (string email, string password)
+            (string log, string password)
         {
-            //List<Usuario> users = new List<Usuario>();
-            //users = this.context.Usuarios.ToList();
 
-            Usuario user =
-                this.context.Usuarios.FirstOrDefault(z => z.Email == email);
+            Usuario user = new Usuario();
+
+            if(log.IndexOf("@") != -1)
+            {
+                user =
+                this.context.Usuarios.FirstOrDefault(z => z.Email == log);
+            } else
+            {
+                user =
+                this.context.Usuarios.FirstOrDefault(z => z.Apodo == log);
+            }
+
+            
             if (user == null)
             {
                 return null;
@@ -83,6 +129,22 @@ namespace MvcPetVet.Repositories
                     return null;
                 }
             }
+        }
+
+        public List<Cita> GetCitas(int idusuario)
+        {
+            List<Cita> citas = this.context.Citas.ToList();
+            List<Cita> citasUsuario = new List<Cita>();
+
+            foreach(Cita cita in citas)
+            {
+                if(cita.IdUsuario == idusuario)
+                {
+                    citasUsuario.Add(cita);
+                }
+            }
+
+            return citasUsuario;
         }
     }
 }

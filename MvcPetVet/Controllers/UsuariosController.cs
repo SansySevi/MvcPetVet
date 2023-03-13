@@ -39,9 +39,10 @@ namespace MvcPetVet.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string email, string password)
+        public IActionResult Login(string log, string password)
         {
-            Usuario user = this.repo.LogInUser(email, password);
+
+            Usuario user = this.repo.LogInUser(log, password);
             if (user == null)
             {
                 ViewData["MENSAJE"] = "Credenciales incorrectas";
@@ -55,6 +56,7 @@ namespace MvcPetVet.Controllers
 
         public IActionResult DatesCalendar()
         {
+            List<Cita> citas = this.repo.GetCitas(1);
             return View();
         }
     }

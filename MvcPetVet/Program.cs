@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 string connectionString =
-    builder.Configuration.GetConnectionString("SqlVetCare");
+    builder.Configuration.GetConnectionString("SqlVetCareHome");
 builder.Services.AddTransient<RepositoryUsuarios>();
 builder.Services.AddDbContext<UsuariosContext>
     (options => options.UseSqlServer(connectionString));

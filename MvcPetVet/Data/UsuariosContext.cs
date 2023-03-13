@@ -9,5 +9,6 @@ namespace MvcPetVet.Data
         public UsuariosContext(DbContextOptions<UsuariosContext> options)
             : base(options) { }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Cita> Citas { get; set; }
     }
 }
