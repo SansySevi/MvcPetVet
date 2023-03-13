@@ -52,5 +52,10 @@ namespace MvcPetVet.Controllers
                 return RedirectToAction("Home");
             }
         }
+
+        public IActionResult DatesCalendar()
+        {
+            return View();
+        }
     }
 }

@@ -1,16 +1,19 @@
 ﻿@{
     Layout = "_TemplateUser";
-    ViewData["Title"] = "USer Home";
+    ViewData["Title"] = "User Home";
 }
 
 <div class="demo-wrapper">
-   
+
     <div class="dashboard clearfix">
         <ul class="tiles">
             <div class="col1 clearfix">
+
             <li class="tile tile-big tile-1 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
-                <div><p>This tile's content slides up</p></div>
-                <div><p>View all tasks</p></div>
+                <a asp-controller="Usuarios" asp-action="DatesCalendar">
+                    <div><p>This tile's content slides up</p></div>
+                    <div><p>View all tasks</p></div>
+                </a>
             </li>
             <li class="tile tile-small tile tile-2 slideTextRight" data-page-type="s-page" data-page-name="random-restored-page">
                 <div><p class="icon-arrow-right"></p></div>
