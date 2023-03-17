@@ -31,16 +31,19 @@
 
             <li class="tile tile-big tile-1 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
                 <a asp-controller="Usuarios" asp-action="DatesCalendar">
-                    <div><p>This tile's content slides up</p></div>
-                    <div><p>View all tasks</p></div>
+                    <div><p>Calendario de citas</p></div>
+                    <div><p>Ve todas tus citas</p></div>
                 </a>
             </li>
             <li class="tile tile-small tile tile-2 slideTextRight" data-page-type="s-page" data-page-name="random-restored-page">
-                <div><p class="icon-arrow-right"></p></div>
-                <div><p>Tile's content slides right. Page opens from left</p></div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                </div>
+                <div><p>Solicitar Cita</p></div>
             </li>
             <li class="tile tile-small last tile-3" data-page-type="r-page" data-page-name="random-r-page">
-                <p class="icon-calendar-alt-fill"></p>
+@*                <p class="icon-calendar-alt-fill"></p>*@
+                <img src="~/images/userhome/calendario-laboral-2023_103.webp" />
             </li>
             <li class="tile tile-big tile-4" data-page-type="r-page" data-page-name="random-r-page">
                 <figure>
@@ -88,66 +91,66 @@
 </div>
 
 <script>
-   // ---------Responsive-navbar-active-animation-----------
-function test() {
-  var tabsNewAnim = $("#navbarSupportedContent");
-  var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
-  var activeItemNewAnim = tabsNewAnim.find(".active");
-  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-  var itemPosNewAnimTop = activeItemNewAnim.position();
-  var itemPosNewAnimLeft = activeItemNewAnim.position();
-  $(".hori-selector").css({
-    top: itemPosNewAnimTop.top + "px",
-    left: itemPosNewAnimLeft.left + "px",
-    height: activeWidthNewAnimHeight + "px",
-    width: activeWidthNewAnimWidth + "px"
-  });
-  $("#navbarSupportedContent").on("click", "li", function (e) {
-    $("#navbarSupportedContent ul li").removeClass("active");
-    $(this).addClass("active");
-    var activeWidthNewAnimHeight = $(this).innerHeight();
-    var activeWidthNewAnimWidth = $(this).innerWidth();
-    var itemPosNewAnimTop = $(this).position();
-    var itemPosNewAnimLeft = $(this).position();
-    $(".hori-selector").css({
-      top: itemPosNewAnimTop.top + "px",
-      left: itemPosNewAnimLeft.left + "px",
-      height: activeWidthNewAnimHeight + "px",
-      width: activeWidthNewAnimWidth + "px"
+    // ---------Responsive-navbar-active-animation-----------
+    function test() {
+        var tabsNewAnim = $("#navbarSupportedContent");
+        var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
+        var activeItemNewAnim = tabsNewAnim.find(".active");
+        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+        var itemPosNewAnimTop = activeItemNewAnim.position();
+        var itemPosNewAnimLeft = activeItemNewAnim.position();
+        $(".hori-selector").css({
+            top: itemPosNewAnimTop.top + "px",
+            left: itemPosNewAnimLeft.left + "px",
+            height: activeWidthNewAnimHeight + "px",
+            width: activeWidthNewAnimWidth + "px"
+        });
+        $("#navbarSupportedContent").on("click", "li", function(e) {
+            $("#navbarSupportedContent ul li").removeClass("active");
+            $(this).addClass("active");
+            var activeWidthNewAnimHeight = $(this).innerHeight();
+            var activeWidthNewAnimWidth = $(this).innerWidth();
+            var itemPosNewAnimTop = $(this).position();
+            var itemPosNewAnimLeft = $(this).position();
+            $(".hori-selector").css({
+                top: itemPosNewAnimTop.top + "px",
+                left: itemPosNewAnimLeft.left + "px",
+                height: activeWidthNewAnimHeight + "px",
+                width: activeWidthNewAnimWidth + "px"
+            });
+        });
+    }
+    $(document).ready(function() {
+        setTimeout(function() {
+            test();
+        });
     });
-  });
-}
-$(document).ready(function () {
-  setTimeout(function () {
-    test();
-  });
-});
-$(window).on("resize", function () {
-  setTimeout(function () {
-    test();
-  }, 500);
-});
-$(".navbar-toggler").click(function () {
-  $(".navbar-collapse").slideToggle(300);
-  setTimeout(function () {
-    test();
-  });
-});
+    $(window).on("resize", function() {
+        setTimeout(function() {
+            test();
+        }, 500);
+    });
+    $(".navbar-toggler").click(function() {
+        $(".navbar-collapse").slideToggle(300);
+        setTimeout(function() {
+            test();
+        });
+    });
 
-// --------------add active class-on another-page move----------
-jQuery(document).ready(function ($) {
-  // Get current path and find target link
-  var path = window.location.pathname.split("/").pop();
+    // --------------add active class-on another-page move----------
+    jQuery(document).ready(function($) {
+        // Get current path and find target link
+        var path = window.location.pathname.split("/").pop();
 
-  // Account for home page with empty path
-  if (path == "") {
-    path = "index.html";
-  }
+        // Account for home page with empty path
+        if (path == "") {
+            path = "index.html";
+        }
 
-  var target = $('#navbarSupportedContent ul li a[href="' + path + '"]');
-  // Add active class to target link
-  target.parent().addClass("active");
-});
+        var target = $('#navbarSupportedContent ul li a[href="' + path + '"]');
+        // Add active class to target link
+        target.parent().addClass("active");
+    });
 
 </script>

@@ -351,6 +351,10 @@ header {
         font-size: 17px;
     }
 
+    svg{
+        max-height:10rem;
+    }
+
 .demo-wrapper {
     padding: 2em .5em;
     width: 100%;
@@ -591,6 +595,8 @@ header {
     color: white;
 }
 
+
+
 .tile-2 {
     background-color: #455962;
     color: white;
@@ -609,6 +615,15 @@ header {
     .tile-3:hover {
         background-color: white;
         color: #455962;
+        filter: saturate(0.5);
+    }
+
+    .tile-3 img {
+        height: 100%;
+    }
+
+    .tile-3 img:hover {
+        transform: scale(1.5);
     }
 
 .tile-5 {
