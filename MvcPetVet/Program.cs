@@ -20,7 +20,7 @@ builder.Services.AddAuthentication(options => {
 
 // BASE DE DATOS
 string connectionString =
-    builder.Configuration.GetConnectionString("SqlVetCareHome");
+    builder.Configuration.GetConnectionString("SqlVetCare");
 builder.Services.AddTransient<RepositoryUsuarios>();
 builder.Services.AddDbContext<UsuariosContext>
     (options => options.UseSqlServer(connectionString));

@@ -23,6 +23,11 @@ namespace MvcPetVet.Controllers
 			return View();
 		}
 
+		public IActionResult Home2()
+		{
+			return View();
+		}
+
 
 		public IActionResult Register()
 		{

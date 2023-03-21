@@ -637,6 +637,12 @@ li.tile.tile-big.tile-1.slideTextUp {
         transform: scale(1.5);
     }
 
+.tile-4 img {
+    height: 12rem;
+    width: auto;
+    margin-right: -7em;
+}
+
 .tile-5,
 .tile-10 {
     background-color: #FCC120;
@@ -663,10 +669,20 @@ li.tile.tile-big.tile-1.slideTextUp {
     background-color: transparent;
 }
 
-.tile-3 p {
-    font-size: 4em;
-    margin-top: .5em;
-}
+    .tile-7 svg {
+        max-width: 6rem;
+        fill: white;
+    }
+
+    .tile-8 svg {
+        max-width: 5rem;
+        fill: #495578;
+    }
+
+    .tile-3 p {
+        font-size: 4em;
+        margin-top: .5em;
+    }
 
 .tile-5 p,
 .tile-6 p,
@@ -768,11 +784,17 @@ li.tile.tile-big.tile-1.slideTextUp {
 .rotate3dX .front {
     background-color: #455962;
     color: #ddd;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .rotate3dY .front {
     background-color: #ddd;
     color: #455962;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
 .faces .back {
@@ -1203,4 +1225,18 @@ input {
 a.navbar-brand {
     display: flex;
     align-items: flex-end;
+}
+
+
+.application-offset .container-application:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    height: 430px;
+    background-color: #f7dca6;
+    border-bottom-left-radius: 2.5rem;
 }

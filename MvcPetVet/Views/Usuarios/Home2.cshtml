@@ -1,24 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = "_TemplateUser";
+    ViewData["Title"] = "User Home";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-
-        <!--Bootstrap core CSS* -->
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<link href="~/css/style.css" rel="stylesheet" />
-	<link href="~/css/purpose.css" rel="stylesheet" />
-
-        <!-- Custom styles for this template -->
-    <link href="~/css/UserHomeStyleSheet.css" rel="stylesheet" />
-    <link href="~/css/DatesCalendarStyleSheet.css" rel="stylesheet" />
-
-</head>
-<body class="application application-offset ready">
-
-    <div class="container-fluid container-application">
+<div class="container-fluid container-application">
     <!-- Sidenav -->
     <!-- Content -->
     <div class="main-content position-relative">
@@ -188,30 +173,5 @@
                     </div>
                 </div>
             </div>
-			<div>
-				@RenderBody()
-			</div>
         </div>
     </div>
-
-
-	
-	
-
-
-    <script src="~/lib/jquery/dist/jquery-3.6.3.min.js"></script>
-    <script src="~/lib/bootstrap//dist/css/bootstrap.min.js"></script>
-    <script src="~/lib/bootstrap//dist/js/popper.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
-
-    <!--Libs Calendar-->
-    @*<script src="~/lib/calendar/54407644e24173ad6019b766443bf2a6.js"></script>
-    <script src="~/lib/calendar/react-dom.development.js"></script>
-    <script src="~/lib/calendar/react.development.js"></script>
-    <script src="~/lib/calendar/index.min.js"></script>*@
-
-    <script src="~/js/user_home.js"></script>
-     @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
