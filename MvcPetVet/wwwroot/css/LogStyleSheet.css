@@ -237,7 +237,7 @@ svg {
         height: 1040px;
         width: 359px;
         top: 261px;
-        right: 153px;
+        right: 103px;
     }
 
     .screen__background__shape4 {
@@ -260,12 +260,12 @@ svg {
         width: 100%;
     }
 
-    .social-login {
+    /*.social-login {
         height: 121px;
         width: 160px;
         bottom: 542px;
         right: 60px;
-    }
+    }*/
 }
 
 @media (max-width: 546px) {

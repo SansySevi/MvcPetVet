@@ -1,4 +1,5 @@
-﻿using MvcCryptographyBBDD.Helpers;
+﻿using Microsoft.EntityFrameworkCore;
+using MvcCryptographyBBDD.Helpers;
 using MvcPetVet.Data;
 using MvcPetVet.Models;
 
@@ -70,8 +71,10 @@ namespace MvcPetVet.Repositories
             user.Apodo = apodo;
             user.Nombre = "";
             user.Email = email;
+            user.Telefono = "";
             user.Pass = password;
             user.Imagen = "default_img.png";
+            
 
             //user.Imagen = imagen;
             //CADA USUARIO TENDRA UN SALT DIFERENTE
@@ -85,23 +88,48 @@ namespace MvcPetVet.Repositories
             await this.context.SaveChangesAsync();
         }
 
-        public Usuario LogInUser
-            (string log, string password)
+        public async Task<Usuario> UpdateUsuario(int idusuario, string nombre, string apodo,
+            string email, string telefono)
         {
+            Usuario user = await FindUserAsync(idusuario);
+            user.Nombre = nombre;
+            user.Apodo = apodo;
+            user.Email = email;
+            user.Telefono = telefono;
 
+            //user.Imagen = "default_img.png";
+
+            this.context.Usuarios.Update(user);
+            await this.context.SaveChangesAsync();
+            return user;
+        }
+
+
+        public async Task<Usuario> FindUserAsync(int idusuario)
+		{
+			return await
+				this.context.Usuarios
+				.FirstOrDefaultAsync(x => x.IdUsuario == idusuario);
+		}
+
+		public async Task<Usuario> ExisteUsuario
+            (string username, string password)
+        {
             Usuario user = new Usuario();
 
-            if(log.IndexOf("@") != -1)
+            if (username.IndexOf("@") != -1)
             {
-                user =
-                this.context.Usuarios.FirstOrDefault(z => z.Email == log);
-            } else
+                user = await
+                this.context.Usuarios.FirstOrDefaultAsync(x => x.Email == username);
+
+            }
+            else
             {
-                user =
-                this.context.Usuarios.FirstOrDefault(z => z.Apodo == log);
+                user = await
+                this.context.Usuarios.FirstOrDefaultAsync(x => x.Apodo == username);
             }
 
-            
+
             if (user == null)
             {
                 return null;
@@ -131,14 +159,15 @@ namespace MvcPetVet.Repositories
             }
         }
 
+
         public List<Cita> GetCitas(int idusuario)
         {
             List<Cita> citas = this.context.Citas.ToList();
             List<Cita> citasUsuario = new List<Cita>();
 
-            foreach(Cita cita in citas)
+            foreach (Cita cita in citas)
             {
-                if(cita.IdUsuario == idusuario)
+                if (cita.IdUsuario == idusuario)
                 {
                     citasUsuario.Add(cita);
                 }

@@ -9,7 +9,7 @@
     body a,
     body p,
     body button {
-        color: #5a5a5a;
+        /*color: #5a5a5a;*/
         font-family: "Rubik", sans-serif;
         font-weight: 400;
         margin: 0px;
@@ -17,7 +17,7 @@
     }
 
 #app {
-    background-color: #141414;
+    /*background-color: #141414;*/
     height: 100vh;
     position: relative;
     width: 100vw;
@@ -32,7 +32,7 @@
     }
 
         #app #calendar-background-wrapper #calendar-background {
-            background-image: url("https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80");
+            /*background-image: url("https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80");*/
             background-position: center;
             background-size: cover;
             height: 100%;
@@ -54,7 +54,7 @@
     }
 
         #app #calendar #calendar-dates {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgb(102 99 139 / 72%);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -69,7 +69,7 @@
             top: 50%;
             transform: translate(-50%, -50%);
             transition: transform 400ms ease-in-out;
-            width: 1180px;
+            width: 1232px;
         }
 
             #app #calendar #calendar-dates .date-wrapper {
@@ -164,7 +164,7 @@
         gap: 8px;
         height: 632px;
         padding: 16px;
-        width: 888px;
+        width: 924px;
     }
 
         #app #calendar #calendar-dates .date-wrapper {

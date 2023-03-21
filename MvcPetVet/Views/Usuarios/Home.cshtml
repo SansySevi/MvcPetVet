@@ -3,27 +3,9 @@
     ViewData["Title"] = "User Home";
 }
 
-<nav class="navbar navbar-expand-custom navbar-mainbg">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <div class="hori-selector">
-                <div class="left"></div>
-                <div class="right"></div>
-            </div>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Log Out</a>
-            </li>
-
-        </ul>
-    </div>
-</nav>
-
-<div class="demo-wrapper">
+<main>
 
     <div class="dashboard clearfix">
         <ul class="tiles">
@@ -37,12 +19,12 @@
             </li>
             <li class="tile tile-small tile tile-2 slideTextRight" data-page-type="s-page" data-page-name="random-restored-page">
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" /></svg>
                 </div>
                 <div><p>Solicitar Cita</p></div>
             </li>
             <li class="tile tile-small last tile-3" data-page-type="r-page" data-page-name="random-r-page">
-@*                <p class="icon-calendar-alt-fill"></p>*@
+                    @*                <p class="icon-calendar-alt-fill"></p>*@
                 <img src="~/images/userhome/calendario-laboral-2023_103.webp" />
             </li>
             <li class="tile tile-big tile-4" data-page-type="r-page" data-page-name="random-r-page">
@@ -70,8 +52,12 @@
         </li>
         <li class="tile tile-small last tile-8 rotate3d rotate3dY" data-page-type="r-page" data-page-name="random-r-page">
             <div class="faces">
-                <div class="front"><span class="icon-instagram"></span></div>
-                <div class="back"><p>Launch Instagram</p></div>
+                <div class="front">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z" /></svg>
+                    </span>
+                </div>
+                <div class="back"><p>Descarga Pruebas</p></div>
             </div>
         </li>
     </div>
@@ -79,78 +65,19 @@
     <div class="col3 clearfix">
         <li class="tile tile-2xbig tile-9" data-page-type="custom-page" data-page-name="random-r-page">
             <figure>
-                <img src="images/summer.jpg" />
+                <img src="~/images/userhome/pets.jpg" />
                 <figcaption class="tile-caption caption-bottom">Fixed Caption: Some Subtitle or Tile Description Goes Here with some kinda link or anything
             </figure>
         </li>
         <li class="tile tile-big tile-10" data-page-type="s-page" data-page-name="custom-page">
-            <div><p>Windows-8-like Animations with CSS3 & jQuery © Sara Soueidan. Licensed under MIT.</p></div>
+            <a asp-controller="Usuarios" asp-action="UserZone" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
+                <div><p>Zona de Usuario</p></div>
+            </a>
         </li>
     </div>
     </ul>
-</div>
+    </div>
 
-<script>
-    // ---------Responsive-navbar-active-animation-----------
-    function test() {
-        var tabsNewAnim = $("#navbarSupportedContent");
-        var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
-        var activeItemNewAnim = tabsNewAnim.find(".active");
-        var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-        var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-        var itemPosNewAnimTop = activeItemNewAnim.position();
-        var itemPosNewAnimLeft = activeItemNewAnim.position();
-        $(".hori-selector").css({
-            top: itemPosNewAnimTop.top + "px",
-            left: itemPosNewAnimLeft.left + "px",
-            height: activeWidthNewAnimHeight + "px",
-            width: activeWidthNewAnimWidth + "px"
-        });
-        $("#navbarSupportedContent").on("click", "li", function(e) {
-            $("#navbarSupportedContent ul li").removeClass("active");
-            $(this).addClass("active");
-            var activeWidthNewAnimHeight = $(this).innerHeight();
-            var activeWidthNewAnimWidth = $(this).innerWidth();
-            var itemPosNewAnimTop = $(this).position();
-            var itemPosNewAnimLeft = $(this).position();
-            $(".hori-selector").css({
-                top: itemPosNewAnimTop.top + "px",
-                left: itemPosNewAnimLeft.left + "px",
-                height: activeWidthNewAnimHeight + "px",
-                width: activeWidthNewAnimWidth + "px"
-            });
-        });
-    }
-    $(document).ready(function() {
-        setTimeout(function() {
-            test();
-        });
-    });
-    $(window).on("resize", function() {
-        setTimeout(function() {
-            test();
-        }, 500);
-    });
-    $(".navbar-toggler").click(function() {
-        $(".navbar-collapse").slideToggle(300);
-        setTimeout(function() {
-            test();
-        });
-    });
+    <script>
 
-    // --------------add active class-on another-page move----------
-    jQuery(document).ready(function($) {
-        // Get current path and find target link
-        var path = window.location.pathname.split("/").pop();
-
-        // Account for home page with empty path
-        if (path == "") {
-            path = "index.html";
-        }
-
-        var target = $('#navbarSupportedContent ul li a[href="' + path + '"]');
-        // Add active class to target link
-        target.parent().addClass("active");
-    });
-
-</script>
+    </script>

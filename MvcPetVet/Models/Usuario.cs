@@ -15,8 +15,10 @@ namespace MvcPetVet.Models
         public string Nombre { get; set; }
         [Column("EMAIL")]
         public string Email { get; set; }
-        [Column("PASS")]
-        public string Pass { get; set; }
+        [Column("TELEFONO")]
+		public string Telefono { get; set; }
+		[Column("PASS")]
+		public string Pass { get; set; }
         [Column("SALT")]
         public string Salt { get; set; }
         [Column("IMAGEN")]

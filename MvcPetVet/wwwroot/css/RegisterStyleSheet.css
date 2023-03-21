@@ -243,7 +243,7 @@ svg {
 
     .screen__background__shape4 {
         top: 457px;
-        right: 23px;
+        right: -71px;
     }
 
     .login {
@@ -254,9 +254,9 @@ svg {
 
 @media (max-width: 767px) {
 
-    .login {
-        margin-left: 13rem;
-        margin-top: 7.5rem;
+    .container_form {
+        display: flex;
+        justify-content: center;
     }
 
     .login__input {
@@ -270,28 +270,28 @@ svg {
 
 }
 
-@media (max-width: 546px) {
+/*@media (max-width: 546px) {
 
     .login {
         margin-left: 30%;
         margin-top: 8.5rem;
     }
-}
+}*/
 
 @media (max-width: 320px) {
 
-    .login {
+    /*.login {
         margin-left: 0rem;
         margin-top: 4rem;
-    }
+    }*/
 
     .screen__background__shape2 {
         right: 2px;
     }
 
-    .social-login {
+    /*.social-login {
         right: 36px;
-    }
+    }*/
 }
 
 
