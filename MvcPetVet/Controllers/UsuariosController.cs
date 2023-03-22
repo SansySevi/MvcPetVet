@@ -23,11 +23,11 @@ namespace MvcPetVet.Controllers
 			return View();
 		}
 
+		[AuthorizeUsers]
 		public IActionResult Home2()
 		{
 			return View();
 		}
-
 
 		public IActionResult Register()
 		{
@@ -127,5 +127,18 @@ namespace MvcPetVet.Controllers
             email, telefono);
             return View(user);
         }
+
+
+		[AuthorizeUsers]
+		public IActionResult Tratamientos(int idusuario)
+		{
+			return View();
+		}
+
+		[AuthorizeUsers]
+		public IActionResult HistorialVeterinario(int idusuario)
+		{
+			return View();
+		}
 	}
 }

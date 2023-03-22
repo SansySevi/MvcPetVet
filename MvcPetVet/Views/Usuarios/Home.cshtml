@@ -4,9 +4,17 @@
 }
 
 
+<!-- Page title -->
+<div class="page-title">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <h5 class="h3 font-weight-400 mb-0 text-white">Hola de nuevo, @Context.User.Identity.Name!</h5>
+        </div>
+    </div>
+</div>
+
 
 <main>
-
     <div class="dashboard clearfix">
         <ul class="tiles">
             <div class="col1 clearfix">
@@ -24,7 +32,6 @@
                 <div><p>Solicitar Cita</p></div>
             </li>
             <li class="tile tile-small last tile-3" data-page-type="r-page" data-page-name="random-r-page">
-                    @*                <p class="icon-calendar-alt-fill"></p>*@
                 <img src="~/images/userhome/calendario-laboral-2023_103.webp" />
             </li>
             <li class="tile tile-big tile-4" data-page-type="r-page" data-page-name="random-r-page">
@@ -37,11 +44,15 @@
 
     <div class="col2 clearfix">
         <li class="tile tile-big tile-5" data-page-type="r-page" data-page-name="random-r-page">
-            <div><p>Tratamientos</p></div>
+            <a asp-controller="Usuarios" asp-action="Tratamientos" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
+                <div><p>Tratamientos</p></div>
+            </a>
         </li>
         <li class="tile tile-big tile-6 slideTextLeft" data-page-type="r-page" data-page-name="random-r-page">
-            <div><p>Historial Completo</p></div>
-            <div><p>Ver Historial</p></div>
+            <a asp-controller="Usuarios" asp-action="HistorialVeterinario" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
+                <div><p>Historial Completo</p></div>
+                <div><p>Ver Historial</p></div>
+            </a>
         </li>
 
         <li class="tile tile-small tile-7 rotate3d rotate3dX" data-page-type="r-page" data-page-name="random-r-page">
