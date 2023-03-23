@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MvcPetVet.Models
 {
-    [Table("CITAS")]
+    [Table("V_CITAS")]
     public class Cita
     {
         [Key]
@@ -16,8 +16,8 @@ namespace MvcPetVet.Models
         [Column("IDMASCOTA")]
         public int IdMascota { get; set; }
 
-        //[Column("N_MASCOTA")]
-        //public string NamedMascota { get; set; }
+        [Column("NMASCOTA")]
+        public string NameMascota { get; set; }
 
         [Column("TIPO_CITA")]
         public string TipoCita { get; set; }

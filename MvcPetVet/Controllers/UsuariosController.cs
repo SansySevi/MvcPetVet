@@ -5,17 +5,20 @@ using MvcPetVet.Models;
 using MvcPetVet.Repositories;
 using System.Security.Claims;
 using MvcCoreSeguridadPersonalizada.Filters;
+using MvcCoreUtilidades.Helpers;
 
 namespace MvcPetVet.Controllers
 {
 	public class UsuariosController : Controller
 	{
 		private RepositoryUsuarios repo;
+        private HelperPathProvider helperPath;
 
-		public UsuariosController(RepositoryUsuarios repo)
+        public UsuariosController(RepositoryUsuarios repo, HelperPathProvider helperPath)
 		{
 			this.repo = repo;
-		}
+            this.helperPath = helperPath;
+        }
 
 		[AuthorizeUsers]
 		public IActionResult Home()
@@ -120,12 +123,30 @@ namespace MvcPetVet.Controllers
 		[AuthorizeUsers]
 		[HttpPost]
 		public async Task<IActionResult> UserZone(int idusuario, string nombre, string apodo, 
-			string email, string telefono)
+			string email, string telefono, IFormFile? fichero)
 		{
+            
+			if(fichero != null)
+			{
+                string fileName = fichero.FileName;
 
-			Usuario user = await this.repo.UpdateUsuario(idusuario, nombre, apodo,
-            email, telefono);
-            return View(user);
+                string path = this.helperPath.MapPath(fileName, Folders.Usuarios);
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    await fichero.CopyToAsync(stream);
+                }
+                Usuario user = await this.repo.UpdateUsuario(idusuario, nombre, apodo,
+					email, telefono, fileName);
+                ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTaMENTE";
+                return View(user);
+            } else
+			{
+                Usuario user = await this.repo.UpdateUsuario(idusuario, nombre, apodo,
+                    email, telefono);
+                ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
+                return View(user);
+            }
+
         }
 
 

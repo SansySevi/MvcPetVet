@@ -13,6 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\mascotas\" />
+    <Folder Include="wwwroot\usuarios\" />
+    <Folder Include="wwwroot\uploads\" />
     <Folder Include="wwwroot\temp\" />
   </ItemGroup>
 

@@ -18,7 +18,7 @@
         <!-- Card body START -->
         <div class="card-body">
             <!-- Form START -->
-            <form class="row g-3" method="post">
+            <form class="row g-3" method="post" enctype="multipart/form-data">
                 <!-- Profile photo -->
                 <div class="col-12">
                     <label class="form-label">Upload your profile photo<span class="text-danger">*</span></label>
@@ -26,12 +26,12 @@
                         <label class="position-relative me-4" for="uploadfile-1" title="Replace this pic">
                             <!-- Avatar place holder -->
                             <span class="avatar avatar-xl">
-                                <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-white border-3 shadow" src="~/images/default/@Model.Imagen" alt="">
+                                <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-white border-3 shadow" src="~/uploads/usuarios/@Model.Imagen" alt="">
                             </span>
                         </label>
                         <!-- Upload button -->
                         <label class="btn btn-sm btn-secondary-soft mb-0" for="uploadfile-1">Change</label>
-                        <input id="uploadfile-1" class="form-control d-none" type="file">
+                        <input id="uploadfile-1" name="fichero" class="form-control d-none" type="file">
                     </div>
                 </div>
 
@@ -113,3 +113,19 @@
 
 
 </div>
+@section Scripts
+    {
+    <script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
+    @if (@ViewData["MENSAJE"] != null)
+    {
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: '@ViewData["MENSAJE"].ToString()',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    }
+}

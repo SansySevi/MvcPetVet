@@ -5,6 +5,22 @@ using MvcPetVet.Models;
 
 #region TABLES
 
+//CREATE VIEW V_TRATAMIENTOS
+//AS
+//	SELECT IDTRATAMIENTO, TRATAMIENTOS.IDUSUARIO, TRATAMIENTOS.IDMASCOTA, NMASCOTA, NOMBREMEDICACION, DOSIS, DURACION, DESCRIPCION
+//	FROM TRATAMIENTOS
+//	LEFT JOIN MASCOTAS
+//	ON TRATAMIENTOS.IDMASCOTA = MASCOTAS.IDMASCOTA
+//GO
+
+//CREATE VIEW V_CITAS
+//AS
+//	SELECT IDCITA, CITAS.IDUSUARIO, CITAS.IDMASCOTA, NMASCOTA, TIPO_CITA, DIA_CITA
+//	FROM CITAS
+//	LEFT JOIN MASCOTAS
+//	ON CITAS.IDMASCOTA = MASCOTAS.IDMASCOTA
+//GO
+
 //create table MASCOTAS(
 //	IDMASCOTA int primary key,
 //    NMASCOTA nvarchar(50),
@@ -22,6 +38,16 @@ using MvcPetVet.Models;
 //	DIA_CITA DATETIME
 //)
 
+
+//CREATE TABLE TRATAMIENTOS(
+//IDTRATAMIENTO INT PRIMARY KEY,
+//IDUSUARIO INT,
+//IDMASCOTA INT,
+//NOMBREMEDICACION NVARCHAR(75),
+//DOSIS NVARCHAR(20),
+//DURACION NVARCHAR(50),
+//DESCRIPCION NVARCHAR(100)
+//)
 
 //create TABLE USUARIOS (
 //	IDUSUARIO INT PRIMARY KEY,
@@ -98,7 +124,20 @@ namespace MvcPetVet.Repositories
             user.Email = email;
             user.Telefono = telefono;
 
-            //user.Imagen = "default_img.png";
+            this.context.Usuarios.Update(user);
+            await this.context.SaveChangesAsync();
+            return user;
+        }
+
+        public async Task<Usuario> UpdateUsuario(int idusuario, string nombre, string apodo,
+            string email, string telefono, string fileName)
+        {
+            Usuario user = await FindUserAsync(idusuario);
+            user.Nombre = nombre;
+            user.Apodo = apodo;
+            user.Email = email;
+            user.Telefono = telefono;
+            user.Imagen = fileName;
 
             this.context.Usuarios.Update(user);
             await this.context.SaveChangesAsync();
