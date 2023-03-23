@@ -100,7 +100,7 @@ namespace MvcPetVet.Repositories
             user.Email = email;
             user.Telefono = "";
             user.Pass = password;
-            user.Imagen = "default_img.png";
+            user.Imagen = "default_img.webp";
             
 
             //user.Imagen = imagen;

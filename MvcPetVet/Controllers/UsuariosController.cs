@@ -42,7 +42,7 @@ namespace MvcPetVet.Controllers
 			(string apodo, string email, string password)
 		{
 			await this.repo.RegisterUser(apodo, email, password);
-			ViewData["MENSAJE"] = "Usuario registrado correctamente";
+			ViewData["REGISTER"] = "Usuario registrado correctamente";
 			return View();
 		}
 
