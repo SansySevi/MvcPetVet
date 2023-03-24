@@ -1,12 +1,9 @@
-﻿@model MvcPetVet.Models.Usuario
+﻿@model List<Mascota>
 
 @{
     Layout = "_TemplateUser";
     ViewData["Title"] = "User Zone";
 }
-
-
-
 
 <div class="container">
     <div class="card border">
@@ -26,7 +23,7 @@
                         <label class="position-relative me-4" for="uploadfile-1" title="Replace this pic">
                             <!-- Avatar place holder -->
                             <span class="avatar avatar-xl">
-                                <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-white border-3 shadow" src="~/uploads/usuarios/@Model.Imagen" alt="">
+                                <img id="uploadfile-1-preview" class="avatar-img rounded-circle border border-white border-3 shadow" src="~/uploads/usuarios/@Context.User.FindFirstValue("Imagen")" alt="">
                             </span>
                         </label>
                         <!-- Upload button -->
@@ -36,30 +33,30 @@
                 </div>
 
                 <!-- Id -->
-                <input name="idusuario" type="hidden" class="form-control" value="@Model.IdUsuario">
+                <input name="idusuario" type="hidden" class="form-control" value="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
 
                 <!-- Name -->
                 <div class="col-md-6">
                     <label class="form-label">Nombre<span class="text-danger">*</span></label>
-                    <input name="nombre" type="text" class="form-control" value="@Model.Nombre" placeholder="Pon tu nombre completo">
+                    <input name="nombre" type="text" class="form-control" value="@Context.User.FindFirstValue("Nombre")" placeholder="Pon tu nombre completo">
                 </div>
 
                 <!-- NickName -->
                 <div class="col-md-6">
                     <label class="form-label">NickName<span class="text-danger">*</span></label>
-                    <input name="apodo" type="text" class="form-control" value="@Model.Apodo" placeholder="Pon tu apodo">
+                    <input name="apodo" type="text" class="form-control" value="@Context.User.Identity.Name" placeholder="Pon tu apodo">
                 </div>
 
                 <!-- Email -->
                 <div class="col-md-6">
                     <label class="form-label">Email<span class="text-danger">*</span></label>
-                    <input name="email" type="email" class="form-control" value="@Model.Email" placeholder="Introduce tu E-mail">
+                    <input name="email" type="email" class="form-control" value="@Context.User.FindFirstValue("Email")" placeholder="Introduce tu E-mail">
                 </div>
 
                 <!-- Mobile -->
                 <div class="col-md-6">
                     <label class="form-label">Teléfono de contacto<span class="text-danger">*</span></label>
-                    <input name="telefono" type="text" class="form-control" value="@Model.Telefono" placeholder="Enter your mobile number">
+                    <input name="telefono" type="text" class="form-control" value="@Context.User.FindFirstValue("Telefono")" placeholder="Enter your mobile number">
                 </div>
 
                 <!-- Button -->
@@ -71,6 +68,77 @@
         </div>
         <!-- Card body END -->
     </div>
+
+    <br />
+
+    @if(Model.Count > 0)
+    {
+        <div class="card border">
+        <!-- Card header -->
+        <div class="card-header border-bottom">
+            <h4 class="card-header-title">Mascotas</h4>
+        </div>
+
+        <!-- Card body START -->
+        <div class="card-body">
+            <!-- Form START -->
+            @foreach (Mascota item in Model)
+            {
+                <div class="row g-3" >
+                <!-- Profile photo -->
+                <div class="col-12">
+                    <label class="form-label">Upload the photo<span class="text-danger">*</span></label>
+                    <div class="d-flex align-items-center">
+                        <label class="position-relative me-4" for="uploadfile-1" title="Replace this pic">
+                            <!-- Avatar place holder -->
+                            <span class="avatar avatar-xl rounded-circle border border-white border-3 shadow">
+                                <img id="uploadfile-1-preview" class="avatar-img " src="~/uploads/mascotas/@item.Imagen" alt="">
+                            </span>
+                        </label>
+                        <!-- Upload button -->
+                        <label class="btn btn-sm btn-secondary-soft mb-0" for="uploadfile-1">Change</label>
+                        <input id="uploadfile-1" name="fichero" class="form-control d-none" type="file">
+                    </div>
+                </div>
+
+                <!-- Id -->
+                <input name="" type="hidden" class="form-control" value="" />
+
+                <!-- Name -->
+                <div class="col-md-6">
+                    <label class="form-label">Nombre<span class="text-danger">*</span></label>
+                    <input name="nmascota" type="text" class="form-control disabled" value="@item.Nombre" placeholder="Pon el nombre completo" disabled />
+                </div>
+
+                <!-- Raza -->
+                <div class="col-md-6">
+                    <label class="form-label">Raza<span class="text-danger">*</span></label>
+                    <input name="raza" type="text" class="form-control" value="@item.Raza" disabled />
+                </div>
+
+                <!-- Fecha Nacimiento -->
+                <div class="col-md-6">
+                    <label class="form-label">Fecha Nacimiento<span class="text-danger">*</span></label>
+                    <input name="fechanacimiento" type="text" class="form-control disabled" value="@item.Fecha_Nacimiento.ToString("yyyy-MM-dd")" disabled />
+                </div>
+
+                <!-- Peso -->
+                <div class="col-md-6">
+                    <label class="form-label">Peso<span class="text-danger">*</span></label>
+                    <input name="peso" type="text" class="form-control" value="@item.Peso" />
+                </div>
+
+            </div>
+            <hr />
+            }
+            <!-- Form END -->
+        </div>
+        <!-- Card body END -->
+        </div>
+    } else
+    {
+        
+    }
 
     <br />
 
@@ -124,7 +192,7 @@
                 icon: 'success',
                 title: '@ViewData["MENSAJE"].ToString()',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2500
             })
         </script>
     }

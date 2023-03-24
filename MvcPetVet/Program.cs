@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using MvcCoreUtilidades.Helpers;
+using MvcPetVet.Helpers;
 using MvcPetVet.Data;
 using MvcPetVet.Repositories;
 
@@ -21,9 +21,18 @@ builder.Services.AddAuthentication(options => {
 
 // BASE DE DATOS
 string connectionString =
-    builder.Configuration.GetConnectionString("SqlVetCareHome");
+    builder.Configuration.GetConnectionString("SqlVetCareAzure");
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
 builder.Services.AddTransient<RepositoryUsuarios>();
+
 builder.Services.AddSingleton<HelperPathProvider>();
+builder.Services.AddSingleton<HelperCryptography>();
+builder.Services.AddSingleton<HelperClaims>();
+
 builder.Services.AddDbContext<UsuariosContext>
     (options => options.UseSqlServer(connectionString));
 

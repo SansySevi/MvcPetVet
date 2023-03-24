@@ -15453,7 +15453,8 @@ a.text-muted:hover {
 .avatar-xl {
     width: 6rem;
     height: 6rem;
-    font-size: 1.375rem
+    font-size: 1.375rem;
+    overflow: hidden;
 }
 
 .avatar-lg {
@@ -19504,7 +19505,7 @@ textarea[resize=horizontal] {
     z-index: -1;
     pointer-events: none;
     height: 430px;
-    background-color: #acb8c1;
+    background-color: #455962;
     border-bottom-left-radius: 2.5rem
 }
 

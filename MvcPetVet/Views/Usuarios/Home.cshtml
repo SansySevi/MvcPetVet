@@ -115,7 +115,7 @@
                 <div class="card card-fluid">
                     <div class="card-body text-center">
                         <div class="avatar-parent-child">
-                            <a href="#" class="avatar avatar-lg rounded-circle">
+                            <a asp-controller="Usuarios" asp-action="UserZone" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value" class="avatar avatar-lg rounded-circle">
                                 <img alt="Image placeholder" src="~/uploads/usuarios/@Context.User.FindFirstValue("Imagen")">
                             </a>
                         </div>
@@ -132,7 +132,7 @@
                     <div class="card-body tile slideTextUp">
                         <figure>
                             <img src="~/images/userhome/questions.png" />
-                            <figcaption class="tile-caption caption-left">FAQ's'</figcaption>
+                            <figcaption class="tile-caption caption-left">FAQ's</figcaption>
                         </figure>
                     </div>
                 </div>

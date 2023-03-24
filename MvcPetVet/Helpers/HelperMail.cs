@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-namespace MvcCoreUtilidades.Helpers
+namespace MvcPetVet.Helpers
 {
     public class HelperMail
     {

@@ -1,4 +1,4 @@
-﻿namespace MvcCoreUtilidades.Helpers
+﻿namespace MvcPetVet.Helpers
 {   
     public enum Folders {Images = 0, Uploads = 1, Usuarios = 2, Mascotas = 3, Temporal }
 

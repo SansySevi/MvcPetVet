@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace MvcCryptographyBBDD.Helpers
+namespace MvcPetVet.Helpers
 {
     public class HelperCryptography
     {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace MvcCoreSeguridadPersonalizada.Filters
+namespace MvcPetVet.Filters
 {
     public class AuthorizeUsersAttribute : AuthorizeAttribute
         , IAuthorizationFilter

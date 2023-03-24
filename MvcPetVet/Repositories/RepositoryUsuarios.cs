@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MvcCryptographyBBDD.Helpers;
+using MvcPetVet.Helpers;
 using MvcPetVet.Data;
 using MvcPetVet.Models;
 
@@ -89,6 +89,8 @@ namespace MvcPetVet.Repositories
                 return this.context.Usuarios.Max(z => z.IdUsuario) + 1;
             }
         }
+
+        
 
         public async Task RegisterUser(string apodo
             , string email, string password)
@@ -197,6 +199,12 @@ namespace MvcPetVet.Repositories
                     return null;
                 }
             }
+        }
+
+        public List<Mascota> GetMascotas(int idusuario)
+        {
+            List<Mascota> mascotas = this.context.Mascotas.Where( x => x.IdUsuario == idusuario).ToList();
+            return mascotas;
         }
 
 

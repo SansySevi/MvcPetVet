@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using MvcPetVet.Models;
 using MvcPetVet.Repositories;
-using System.Security.Claims;
-using MvcCoreSeguridadPersonalizada.Filters;
-using MvcCoreUtilidades.Helpers;
+using MvcPetVet.Filters;
+using MvcPetVet.Helpers;
 
 namespace MvcPetVet.Controllers
 {
@@ -13,11 +12,13 @@ namespace MvcPetVet.Controllers
 	{
 		private RepositoryUsuarios repo;
         private HelperPathProvider helperPath;
+		private HelperClaims helperClaims;
 
-        public UsuariosController(RepositoryUsuarios repo, HelperPathProvider helperPath)
+		public UsuariosController(RepositoryUsuarios repo, HelperPathProvider helperPath, HelperClaims helperClaims)
 		{
 			this.repo = repo;
             this.helperPath = helperPath;
+			this.helperClaims = helperClaims;
         }
 
 		[AuthorizeUsers]
@@ -60,35 +61,7 @@ namespace MvcPetVet.Controllers
 
 			if (usuario != null)
 			{
-				ClaimsIdentity identity =
-					new ClaimsIdentity
-					(CookieAuthenticationDefaults.AuthenticationScheme,
-					ClaimTypes.Name, ClaimTypes.Role);
-
-				Claim ClaimName = new Claim(ClaimTypes.Name, usuario.Apodo.ToString());
-				identity.AddClaim(ClaimName);
-
-				Claim ClaimId = new Claim(ClaimTypes.NameIdentifier
-					, usuario.IdUsuario.ToString());
-				identity.AddClaim(ClaimId);
-
-				Claim claimImagen =
-					new Claim("Imagen", usuario.Imagen.ToString());
-				identity.AddClaim(claimImagen);
-
-                Claim claimEmail =
-                    new Claim("Email", usuario.Email.ToString());
-                identity.AddClaim(claimEmail);
-
-                Claim claimRole =
-					new Claim(ClaimTypes.Role, "Usuario");
-				identity.AddClaim(claimRole);
-
-				ClaimsPrincipal userPrincipal =
-					new ClaimsPrincipal(identity);
-				await HttpContext.SignInAsync(
-					CookieAuthenticationDefaults.AuthenticationScheme
-					, userPrincipal);
+				this.helperClaims.GetClaims(usuario);
 				return RedirectToAction("Home", "Usuarios");
 			}
 			else
@@ -116,8 +89,8 @@ namespace MvcPetVet.Controllers
 		[AuthorizeUsers]
 		public async Task<IActionResult> UserZone(int idusuario)
 		{
-			Usuario user = await this.repo.FindUserAsync(idusuario);
-			return View(user);
+			List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
+			return View(mascotas);
 		}
 
 		[AuthorizeUsers]
@@ -137,13 +110,20 @@ namespace MvcPetVet.Controllers
                 }
                 Usuario user = await this.repo.UpdateUsuario(idusuario, nombre, apodo,
 					email, telefono, fileName);
-                ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTaMENTE";
+
+				this.helperClaims.GetClaims(user);
+
+
+				ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
                 return View(user);
             } else
 			{
                 Usuario user = await this.repo.UpdateUsuario(idusuario, nombre, apodo,
                     email, telefono);
-                ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
+
+				this.helperClaims.GetClaims(user);
+
+				ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
                 return View(user);
             }
 
