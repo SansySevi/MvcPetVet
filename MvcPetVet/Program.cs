@@ -21,7 +21,7 @@ builder.Services.AddAuthentication(options => {
 
 // BASE DE DATOS
 string connectionString =
-    builder.Configuration.GetConnectionString("SqlVetCareAzure");
+    builder.Configuration.GetConnectionString("SqlVetCareHome");
 builder.Services.AddTransient<RepositoryUsuarios>();
 builder.Services.AddSingleton<HelperPathProvider>();
 builder.Services.AddDbContext<UsuariosContext>

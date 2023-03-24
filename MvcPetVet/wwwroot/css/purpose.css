@@ -4968,8 +4968,9 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid #eff2f7;
-    border-radius: .375rem
+/*    border: 1px solid #eff2f7;*/
+    border-radius: .375rem;
+    border: 0px;
 }
 
     .card > hr {

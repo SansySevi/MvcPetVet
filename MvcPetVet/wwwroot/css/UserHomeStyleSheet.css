@@ -328,8 +328,8 @@ body {
     background-size: 100% 100%;
 }
 
-a{
-    color:white;
+a {
+    color: white;
 }
 
 ul {
@@ -355,9 +355,9 @@ ul {
         font-size: 17px;
     }*/
 
-    svg{
-        max-height:10rem;
-    }
+svg {
+    max-height: 10rem;
+}
 
 .demo-wrapper {
     padding: 2em .5em;
@@ -503,16 +503,15 @@ ul {
 
 .tile {
     float: left;
-    margin: 0 auto 1%;
     color: white;
     font-size: 1.3em;
     text-align: center;
     height: 8em;
+    width: 100%;
     font-weight: 300;
     overflow: hidden;
     cursor: pointer;
     position: relative;
-    background-color: #fff;
     color: #333;
     position: relative;
     -webkit-transition: background-color 0.2s ease-out;
@@ -537,6 +536,7 @@ ul {
     position: absolute;
     z-index: 1;
     background-color: #455962;
+    border-radius: 0.375rem;
     color: #fff;
     font-size: 1em;
     padding: 1em;
@@ -604,13 +604,14 @@ li.tile.tile-big.tile-1.slideTextUp {
     /*background-color: #c4d0db !important;*/
 }
 
-    .tile-1 a {
-        color: #698697;
-    }
+.tile-1 a {
+    color: #698697;
+}
 
 .tile-2 {
-    background-color: #455962;
+    background-color: #95927d;
     color: white;
+    border-radius: 0.375rem;
 }
 
     .tile-2:hover {
@@ -633,9 +634,9 @@ li.tile.tile-big.tile-1.slideTextUp {
         height: 100%;
     }
 
-    .tile-3 img:hover {
-        transform: scale(1.5);
-    }
+        .tile-3 img:hover {
+            transform: scale(1.5);
+        }
 
 .tile-4 img {
     height: 12rem;
@@ -679,20 +680,20 @@ li.tile.tile-big.tile-1.slideTextUp {
         fill: #495578;
     }
 
-    .tile-3 p {
-        font-size: 4em;
-        margin-top: .5em;
-    }
+.tile-3 p {
+    font-size: 4em;
+    margin-top: .5em;
+}
 
 .tile-5 p,
 .tile-6 p,
-.tile-10 p{
-    font-size: 2em;
+.tile-10 p {
+    font-size: 1.8em;
 }
 
     .tile-5 p span,
     .tile-6 p span,
-    .tile--10 span{
+    .tile--10 span {
         font-size: 1.3em;
         margin-right: .7em;
         position: relative;
@@ -702,6 +703,27 @@ li.tile.tile-big.tile-1.slideTextUp {
     .tile-6 p span {
         margin-right: 1em;
     }
+
+.tile-11 {
+    background-image: url(../images/userhome3.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.375rem;
+}
+
+.tile-12 {
+    background-image: url(../images/userhome4.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.375rem;
+}
+
+.tile-13 {
+    background-image: url(../images/userhome5.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.375rem;
+}
 
 /* slide text inside tile up */
 
@@ -713,6 +735,20 @@ li.tile.tile-big.tile-1.slideTextUp {
     -webkit-transform: translateY(-100%);
     -ms-transform: translateY(-100%);
     transform: translateY(-100%);
+}
+
+.slideTextDown div:nth-child(1) {
+    top: -100%;
+}
+
+.slideTextDown div:nth-child(2) {
+    top: 0;
+}
+
+.slideTextDown:hover div {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
 }
 
 .tile-1 p {
@@ -782,11 +818,13 @@ li.tile.tile-big.tile-1.slideTextUp {
     }
 
 .rotate3dX .front {
-    background-color: #455962;
+    background-color: #3a82a3;
     color: #ddd;
     display: flex;
     align-content: center;
     justify-content: center;
+    border-radius: 0.375rem;
+    align-items: center;
 }
 
 .rotate3dY .front {
@@ -795,6 +833,7 @@ li.tile.tile-big.tile-1.slideTextUp {
     display: flex;
     align-content: center;
     justify-content: center;
+    border-radius: 0.375rem;
 }
 
 .faces .back {
@@ -812,12 +851,14 @@ li.tile.tile-big.tile-1.slideTextUp {
     -webkit-transform: rotateY( 180deg );
     -ms-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
+    border-radius: 0.375rem;
 }
 
 .rotate3dX .back {
     -webkit-transform: rotateX( 180deg );
     -ms-transform: rotateX( 180deg );
     transform: rotateX( 180deg );
+    border-radius: 0.375rem;
 }
 
 .back p {
@@ -887,7 +928,7 @@ input {
     float: right;
     line-height: 25px;
 }
-  
+
 
 /*======================= media queries =======================*/
 
@@ -1084,4 +1125,13 @@ input {
 a.navbar-brand {
     display: flex;
     align-items: flex-end;
+}
+
+.bg-img {
+    background-image: url("../images/userhome/calendario-laboral-2023_103.webp");
+    background-size: cover;
+}
+
+.bg-warning svg {
+    fill: white;
 }

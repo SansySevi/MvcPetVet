@@ -1,7 +1,6 @@
-﻿
-@{
+﻿@{
     Layout = "_TemplateUser";
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "User Home";
 }
 
 
@@ -14,147 +13,76 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xl-7 d-sm-flex flex-sm-column">
-    <div class="row flex-sm-fill">
-        <div class="col-sm-4">
-        <div class="card card-fluid">
-            <div class="card-body text-center">
-            <div class="avatar-parent-child">
-                <a href="#" class="avatar avatar-lg rounded-circle">
-                <img alt="Image placeholder" src="../assets/img/theme/light/team-1-800x800.jpg">
-                </a>
-                <span class="avatar-child avatar-badge bg-success"></span>
-            </div>
-            <h5 class="h6 mt-4 mb-0">John Sullivan</h5>
-            <a href="#" class="d-block text-sm text-muted mb-3">@@john.sullivan</a>
-            <div class="actions d-flex justify-content-between px-4">
-                <a href="#" class="action-item">
-                <i class="far fa-envelope"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-phone"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-share-alt"></i>
-                </a>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div class="col-sm-8">
-        <div class="card card-fluid">
-            <div class="card-body text-center">
-            <div class="avatar-parent-child">
-                <a href="#" class="avatar avatar-lg rounded-circle">
-                <img alt="Image placeholder" src="../assets/img/theme/light/team-2-800x800.jpg">
-                </a>
-                <span class="avatar-child avatar-badge bg-warning"></span>
-            </div>
-            <h5 class="h6 mt-4 mb-0">Heather Wright</h5>
-            <a href="#" class="d-block text-sm text-muted mb-3">@@heather.wright</a>
-            <div class="actions d-flex justify-content-between px-4">
-                <a href="#" class="action-item">
-                <i class="far fa-envelope"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-phone"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-share-alt"></i>
-                </a>
-            </div>
-            </div>
-        </div>
-        </div>
 
-    </div>
-    <div class="row flex-sm-fill">
+<main>
+    <div class="dashboard clearfix">
+        <ul class="tiles">
+            <div class="col1 clearfix">
 
-        <div class="col-sm-8">
-        <div class="card card-fluid">
-            <div class="card-body text-center">
-            <div class="avatar-parent-child">
-                <a href="#" class="avatar avatar-lg rounded-circle">
-                <img alt="Image placeholder" src="../assets/img/theme/light/team-2-800x800.jpg">
+            <li class="tile tile-big tile-1 slideTextUp" data-page-type="r-page" data-page-name="random-r-page">
+                <a asp-controller="Usuarios" asp-action="DatesCalendar">
+                    <div><p>Calendario de citas</p></div>
+                    <div><p>Ve todas tus citas</p></div>
                 </a>
-                <span class="avatar-child avatar-badge bg-success"></span>
-            </div>
-            <h5 class="h6 mt-4 mb-0">John Michael</h5>
-            <a href="#" class="d-block text-sm text-muted mb-3">@@john.michael</a>
-            <div class="actions d-flex justify-content-between px-4">
-                <a href="#" class="action-item">
-                <i class="far fa-envelope"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-phone"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-share-alt"></i>
-                </a>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div class="col-sm-4">
-        <div class="card card-fluid">
-            <div class="card-body text-center">
-            <div class="avatar-parent-child">
-                <a href="#" class="avatar avatar-lg rounded-circle">
-                <img alt="Image placeholder" src="../assets/img/theme/light/team-3-800x800.jpg">
-                </a>
-                <span class="avatar-child avatar-badge bg-warning"></span>
-            </div>
-            <h5 class="h6 mt-4 mb-0">Monroe Parker</h5>
-            <a href="#" class="d-block text-sm text-muted mb-3">@@monroe.parker</a>
-            <div class="actions d-flex justify-content-between px-4">
-                <a href="#" class="action-item">
-                <i class="far fa-envelope"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-phone"></i>
-                </a>
-                <a href="#" class="action-item">
-                <i class="far fa-share-alt"></i>
-                </a>
-            </div>
-            </div>
-        </div>
-        </div>
+            </li>
+            <li class="tile tile-small tile tile-2 slideTextRight" data-page-type="s-page" data-page-name="random-restored-page">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" /></svg>
+                </div>
+                <div><p>Solicitar Cita</p></div>
+            </li>
+            <li class="tile tile-small last tile-3" data-page-type="r-page" data-page-name="random-r-page">
+                <img src="~/images/userhome/calendario-laboral-2023_103.webp" />
+            </li>
+            <li class="tile tile-big tile-4" data-page-type="r-page" data-page-name="random-r-page">
+                <figure>
+                    <img src="~/images//userhome/questions.png" />
+                    <figcaption class="tile-caption caption-left">FAQ's'</figcaption>
+                </figure>
+            </li>
     </div>
+
+    <div class="col2 clearfix">
+        <li class="tile tile-big tile-5" data-page-type="r-page" data-page-name="random-r-page">
+            <a asp-controller="Usuarios" asp-action="Tratamientos" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
+                <div><p>Tratamientos</p></div>
+            </a>
+        </li>
+        <li class="tile tile-big tile-6 slideTextLeft" data-page-type="r-page" data-page-name="random-r-page">
+            <a asp-controller="Usuarios" asp-action="HistorialVeterinario" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
+                <div><p>Historial Completo</p></div>
+                <div><p>Ver Historial</p></div>
+            </a>
+        </li>
+
+        <li class="tile tile-small tile-7 rotate3d rotate3dX" data-page-type="r-page" data-page-name="random-r-page">
+            <div class="faces">
+                <div class="front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 7l32 32 32 32c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15L417.9 128l55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-72-72L295 73c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l55 55L422.1 56 407 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0zM210.3 155.7l61.1-61.1c.3 .3 .6 .7 1 1l16 16 56 56 56 56 16 16c.3 .3 .6 .6 1 1l-191 191c-10.5 10.5-24.7 16.4-39.6 16.4H97.9L41 505c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l57-57V325.3c0-14.9 5.9-29.1 16.4-39.6l43.3-43.3 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57 41.4-41.4 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57z" /></svg></div>
+                <div class="back"><p>Cartilla de Vacunación</p></div>
+            </div>
+        </li>
+        <li class="tile tile-small last tile-8 rotate3d rotate3dY" data-page-type="r-page" data-page-name="random-r-page">
+            <div class="faces">
+                <div class="front">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.3.0 by @@fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z" /></svg>
+                </div>
+                <div class="back"><p>Descarga Pruebas</p></div>
+            </div>
+        </li>
     </div>
-    <div class="col-xl-5">
-    <div class="card card-fluid">
-        <div class="card-body">
-        <div class="row align-items-center mb-4">
-            <div class="col-auto">
-            <div class="progress-circle progress-sm" id="progress-1" data-progress="90" data-color="primary" style="position: relative;"><svg viewBox="0 0 100 100" style="display: block;"><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#6e00ff" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 29.2273;"></path></svg><div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(110, 0, 255);"></div></div>
-            </div>
-            <div class="col">
-            <a href="#!" class="d-block h6 mb-0">98 tasks solved</a>
-            <a href="#" class="text-sm text-muted">Purpose Website UI</a>
-            </div>
-        </div>
-        <div class="row align-items-center mb-4">
-            <div class="col-auto">
-            <div class="progress-circle progress-sm" id="progress-2" data-progress="40" data-color="warning" style="position: relative;"><svg viewBox="0 0 100 100" style="display: block;"><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#ffab00" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 175.364;"></path></svg><div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(255, 171, 0);"></div></div>
-            </div>
-            <div class="col">
-            <a href="#!" class="d-block h6 mb-0">13 tasks solved</a>
-            <a href="#" class="text-sm text-muted">Webpixels website</a>
-            </div>
-        </div>
-        <div class="row align-items-center">
-            <div class="col-auto">
-            <div class="progress-circle progress-sm" id="progress-3" data-progress="60" data-color="info" style="position: relative;"><svg viewBox="0 0 100 100" style="display: block;"><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path><path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#00b8d9" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 116.909;"></path></svg><div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(0, 184, 217);"></div></div>
-            </div>
-            <div class="col">
-            <a href="#!" class="d-block h6 mb-0">23 tasks solved</a>
-            <a href="#" class="text-sm text-muted">Purpose Dashboard UI</a>
-            </div>
-        </div>
-        <a href="#" class="btn btn-sm btn-block btn-secondary mt-5">Open insights</a>
-        </div>
+
+    <div class="col3 clearfix">
+        <li class="tile tile-2xbig tile-9" data-page-type="custom-page" data-page-name="random-r-page">
+            <figure>
+                <img src="~/images/userhome/pets.jpg" />
+                <figcaption class="tile-caption caption-bottom">Fixed Caption: Some Subtitle or Tile Description Goes Here with some kinda link or anything
+            </figure>
+        </li>
+        <li class="tile tile-big tile-10" data-page-type="s-page" data-page-name="custom-page">
+            <a asp-controller="Usuarios" asp-action="UserZone" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
+                <div><p>Zona de Usuario</p></div>
+            </a>
+        </li>
     </div>
+    </ul>
     </div>
-</div>
