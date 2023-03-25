@@ -19,7 +19,7 @@
             <div class="col-sm-4">
                 <div class="card card-fluid tile-1">
                     <div class="card-body tile slideTextUp">
-                        <a asp-controller="Usuarios" asp-action="DatesCalendar">
+                        <a asp-controller="Usuarios" asp-action="Calendar">
                             <div><p>Calendario de citas</p></div>
                             <div><p>Ve todas tus citas</p></div>
                         </a>
@@ -131,8 +131,10 @@
                 <div class="card card-fluid tile-4">
                     <div class="card-body tile slideTextUp">
                         <figure>
-                            <img src="~/images/userhome/questions.png" />
-                            <figcaption class="tile-caption caption-left">FAQ's</figcaption>
+                            <a asp-controller="Usuarios" asp-action="FAQs">
+                                <img src="~/images/userhome/questions.png" />
+                                <figcaption class="tile-caption caption-left">FAQ's</figcaption>
+                            </a>
                         </figure>
                     </div>
                 </div>

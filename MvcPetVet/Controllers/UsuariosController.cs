@@ -5,6 +5,7 @@ using MvcPetVet.Models;
 using MvcPetVet.Repositories;
 using MvcPetVet.Filters;
 using MvcPetVet.Helpers;
+using System.Security.Claims;
 
 namespace MvcPetVet.Controllers
 {
@@ -27,13 +28,15 @@ namespace MvcPetVet.Controllers
 			return View();
 		}
 
-		[AuthorizeUsers]
-		public IActionResult Home2()
-		{
-			return View();
-		}
+        [AuthorizeUsers]
+        public IActionResult Calendar()
+        {
+            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewData["Events"] = JSONListHelper.GetEventListJSONString(_idal.GetMyEvents(userid));
+            return View();
+        }
 
-		public IActionResult Register()
+        public IActionResult Register()
 		{
 			return View();
 		}
@@ -141,5 +144,11 @@ namespace MvcPetVet.Controllers
 		{
 			return View();
 		}
-	}
+
+        public IActionResult FAQs()
+        {
+
+            return View();
+        }
+    }
 }
