@@ -7198,6 +7198,10 @@ a.bg-neutral:focus, a.bg-neutral:hover, a.bg-white:focus, a.bg-white:hover, butt
     background-color: #fff !important
 }
 
+.bg-transparent-blue {
+    background-color: #5996a921 !important
+}
+
 .bg-transparent {
     background-color: transparent !important
 }
@@ -17051,7 +17055,8 @@ a.text-muted:hover {
     }
 
 .card-fluid {
-    height: calc(100% - 20px)
+    height: calc(100% - 20px);
+    overflow: hidden;
 }
 
 .card-header {

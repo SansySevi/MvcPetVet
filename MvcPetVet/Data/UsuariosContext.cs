@@ -10,6 +10,7 @@ namespace MvcPetVet.Data
             : base(options) { }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Mascota> Mascotas { get; set; }
+        public DbSet<Tratamiento> Tratamientos { get; set; }
         public DbSet<Cita> Citas { get; set; }
     }
 }

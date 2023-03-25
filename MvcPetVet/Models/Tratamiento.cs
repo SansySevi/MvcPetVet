@@ -31,5 +31,11 @@ namespace MvcPetVet.Models
         [Column("DESCRIPCION")]
         public string Descripcion { get; set; }
 
+        [Column("FECHA_INICIO")]
+        public DateTime FechaInicio { get; set; }
+
+        [Column("FECHA_FIN")]
+        public DateTime FechaFin { get; set; }
+
     }
 }

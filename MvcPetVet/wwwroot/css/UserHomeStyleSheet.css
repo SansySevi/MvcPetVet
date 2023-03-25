@@ -725,6 +725,15 @@ li.tile.tile-big.tile-1.slideTextUp {
     border-radius: 0.375rem;
 }
 
+    .tile-11:hover,
+    .tile-13:hover {
+        transform: scale(1.5);
+    }
+
+.tile-12:hover {
+    transform: scale(1.2);
+}
+
 
 @media (max-width: 1200px) {
     .tile-11, .tile-12, .tile-13 {

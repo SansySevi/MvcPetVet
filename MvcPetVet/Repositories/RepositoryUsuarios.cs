@@ -207,21 +207,17 @@ namespace MvcPetVet.Repositories
             return mascotas;
         }
 
+        public List<Tratamiento> GetTratamientos(int idusuario)
+        {
+            List<Tratamiento> tratamientos = this.context.Tratamientos.Where(x => x.IdUsuario == idusuario).ToList();
+            return tratamientos;
+        }
+
 
         public List<Cita> GetCitas(int idusuario)
         {
-            List<Cita> citas = this.context.Citas.ToList();
-            List<Cita> citasUsuario = new List<Cita>();
-
-            foreach (Cita cita in citas)
-            {
-                if (cita.IdUsuario == idusuario)
-                {
-                    citasUsuario.Add(cita);
-                }
-            }
-
-            return citasUsuario;
+            List<Cita> citas = this.context.Citas.Where(x => x.IdUsuario == idusuario).ToList();
+            return citas;
         }
     }
 }

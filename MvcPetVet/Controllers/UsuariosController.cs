@@ -129,12 +129,12 @@ namespace MvcPetVet.Controllers
 
         }
 
-
 		[AuthorizeUsers]
 		public IActionResult Tratamientos(int idusuario)
 		{
-			return View();
-		}
+            List<Tratamiento> tratamientos = this.repo.GetTratamientos(idusuario);
+            return View(tratamientos);
+        }
 
 		[AuthorizeUsers]
 		public IActionResult HistorialVeterinario(int idusuario)
