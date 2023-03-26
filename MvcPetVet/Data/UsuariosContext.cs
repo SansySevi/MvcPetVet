@@ -11,6 +11,8 @@ namespace MvcPetVet.Data
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Mascota> Mascotas { get; set; }
         public DbSet<Tratamiento> Tratamientos { get; set; }
+        public DbSet<Prueba> Pruebas { get; set; }
+        public DbSet<Vacuna> Vacunas { get; set; }
         public DbSet<Cita> Citas { get; set; }
         public DbSet<Evento> Eventos { get; set; }
     }

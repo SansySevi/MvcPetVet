@@ -26,8 +26,8 @@ namespace MvcPetVet.Controllers
 		{
 			return View();
 		}
-        
 
+        #region LOG/REGISTER
         public IActionResult Register()
 		{
 			return View();
@@ -74,8 +74,11 @@ namespace MvcPetVet.Controllers
 
 		}
 
+        #endregion
 
-		[AuthorizeUsers]
+        #region ZONAUSUARIO
+
+        [AuthorizeUsers]
 		public async Task<IActionResult> UserZone(int idusuario)
 		{
 			List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
@@ -120,6 +123,47 @@ namespace MvcPetVet.Controllers
 
 
         [AuthorizeUsers]
+        public async Task<IActionResult> EditPet(int idmascota)
+		{
+			Mascota mascota = await this.repo.FindPetAsync(idmascota);
+			return View(mascota);
+		}
+
+        [AuthorizeUsers]
+        [HttpPost]
+        public async Task<IActionResult> EditPet(int idusuario, int idmascota, string nombre, string raza,
+            string tipo, int peso, DateTime fechanacimiento, IFormFile? fichero)
+        {
+
+            if (fichero != null)
+            {
+                string fileName = fichero.FileName;
+
+                string path = this.helperPath.MapPath(fileName, Folders.Mascotas);
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    await fichero.CopyToAsync(stream);
+                }
+                Mascota pet = await this.repo.UpdateMascota(idusuario, idmascota, nombre, raza,
+                    tipo, peso, fechanacimiento, fileName);
+
+
+                ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
+                return View(pet);
+            }
+            else
+            {
+                Mascota pet = await this.repo.UpdateMascota(idusuario, idmascota, nombre, raza,
+                    tipo, peso, fechanacimiento);
+
+                ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
+                return View(pet);
+            }
+
+        }
+
+
+        [AuthorizeUsers]
         public IActionResult Calendar(int idusuario)
         {
 			List<Evento> eventos = this.repo.GetEventos(idusuario);
@@ -135,11 +179,33 @@ namespace MvcPetVet.Controllers
             return View(tratamientos);
         }
 
-		[AuthorizeUsers]
+        [AuthorizeUsers]
+        public async Task<IActionResult> Vacunas(int? posicion, int idusuario)
+        {
+            if (posicion == null)
+            {
+                posicion = 1;
+            }
+
+            List<Vacuna> vacunas = await this.repo.GetVacunasPaginar(posicion.Value, idusuario);
+            ViewData["REGISTROS"] = this.repo.GetNumeroVacunas(idusuario);
+            return View(vacunas);
+        }
+
+        [AuthorizeUsers]
+        public  IActionResult Pruebas( int idusuario)
+        {
+            List<Prueba> pruebas = this.repo.GetPruebas(idusuario);
+            return View(pruebas);
+        }
+
+        [AuthorizeUsers]
 		public IActionResult HistorialVeterinario(int idusuario)
 		{
 			return View();
 		}
+
+        #endregion
 
         public IActionResult FAQs()
         {

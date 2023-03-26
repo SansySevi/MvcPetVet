@@ -8,21 +8,14 @@ using Microsoft.Data.SqlClient;
 
 #region TABLES
 
-//CREATE VIEW V_TRATAMIENTOS
-//AS
-//	SELECT IDTRATAMIENTO, TRATAMIENTOS.IDUSUARIO, TRATAMIENTOS.IDMASCOTA, NMASCOTA, NOMBREMEDICACION, DOSIS, DURACION, DESCRIPCION
-//	FROM TRATAMIENTOS
-//	LEFT JOIN MASCOTAS
-//	ON TRATAMIENTOS.IDMASCOTA = MASCOTAS.IDMASCOTA
-//GO
-
-//CREATE VIEW V_CITAS
-//AS
-//	SELECT IDCITA, CITAS.IDUSUARIO, CITAS.IDMASCOTA, NMASCOTA, TIPO_CITA, DIA_CITA
-//	FROM CITAS
-//	LEFT JOIN MASCOTAS
-//	ON CITAS.IDMASCOTA = MASCOTAS.IDMASCOTA
-//GO
+//create table VACUNAS(
+//  IDVACUNA int primary key, 
+//  IDUSUARIO int, 
+//  IDMASCOTA int, 
+//  NVACUNA NVARCHAR(50),
+//  LOTE NVARCHAR(50), 
+//    FECHA DATE
+//)
 
 //create table MASCOTAS(
 //	IDMASCOTA int primary key,
@@ -39,6 +32,15 @@ using Microsoft.Data.SqlClient;
 //    IDMASCOTA int,
 //    TIPO_CITA NVARCHAR(50),
 //	DIA_CITA DATETIME
+//)
+
+//CREATE TABLE PRUEBAS(
+//IDPRUEBA INT,
+//IDUSUARIO INT,
+//IDMASCOTA INT,
+//NAME_FILE NVARCHAR(MAX),
+//DESCRIPCION NVARCHAR(150),
+//FECHA DATE
 //)
 
 
@@ -66,7 +68,55 @@ using Microsoft.Data.SqlClient;
 
 #endregion
 
+#region VISTAS
+
+//CREATE VIEW V_TRATAMIENTOS
+//AS
+//	SELECT IDTRATAMIENTO, TRATAMIENTOS.IDUSUARIO, TRATAMIENTOS.IDMASCOTA, NMASCOTA, NOMBREMEDICACION, DOSIS, DURACION, DESCRIPCION
+//	FROM TRATAMIENTOS
+//	LEFT JOIN MASCOTAS
+//	ON TRATAMIENTOS.IDMASCOTA = MASCOTAS.IDMASCOTA
+//GO
+
+//CREATE VIEW V_PRUEBAS
+//AS
+//	SELECT IDPRUEBA, PRUEBAS.IDUSUARIO, PRUEBAS.IDMASCOTA, NMASCOTA, NAME_FILE, DESCRIPCION, FECHA
+//	FROM PRUEBAS
+//	LEFT JOIN MASCOTAS
+//	ON PRUEBAS.IDMASCOTA = MASCOTAS.IDMASCOTA
+//GO
+
+//CREATE VIEW V_CITAS
+//AS
+//	SELECT IDCITA, CITAS.IDUSUARIO, CITAS.IDMASCOTA, NMASCOTA, TIPO_CITA, DIA_CITA
+//	FROM CITAS
+//	LEFT JOIN MASCOTAS
+//	ON CITAS.IDMASCOTA = MASCOTAS.IDMASCOTA
+//GO
+
+//create VIEW V_VACUNAS
+//as
+//	select IDVACUNA, vacunas.IDUSUARIO, vacunas.IDMASCOTA, NMASCOTA, NVACUNA, LOTE, FECHA, mascotas.IMAGEN
+//	from vacunas 
+//	left join mascotas
+//	on vacunas.idmascota = mascotas.idmascota
+//go
+
+#endregion
+
 #region PROCEDURES
+
+//CREATE PROCEDURE SP_VACUNAS_PAGINAR
+//(@POSICION INT, @IDUSUARIO INT)
+//AS
+//    SELECT POSICION, IDVACUNA, IDUSUARIO, IDMASCOTA, NMASCOTA, NVACUNA, LOTE, FECHA, IMAGEN FROM
+//        (SELECT CAST(
+//            ROW_NUMBER() OVER(ORDER BY FECHA DESC) AS INT) AS POSICION,
+//            IDVACUNA, IDUSUARIO, IDMASCOTA, NMASCOTA, NVACUNA, LOTE, FECHA, IMAGEN
+//        FROM V_VACUNAS
+//        WHERE IDUSUARIO = @IDUSUARIO) AS QUERY
+//    WHERE QUERY.POSICION >= @POSICION AND QUERY.POSICION < (@POSICION + 5)
+//GO
 
 #endregion
 
@@ -81,19 +131,9 @@ namespace MvcPetVet.Repositories
             this.context = context;
         }
 
-        private int GetMaxIdUsuario()
-        {
-            if (this.context.Usuarios.Count() == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return this.context.Usuarios.Max(z => z.IdUsuario) + 1;
-            }
-        }
+        
 
-
+        #region FORMS
 
         public async Task RegisterUser(string apodo
             , string email, string password)
@@ -150,6 +190,41 @@ namespace MvcPetVet.Repositories
         }
 
 
+        public async Task<Mascota> UpdateMascota(int idusuario, int idmascota, string nombre, string raza,
+            string tipo, int peso, DateTime fechanacimiento)
+        {
+            Mascota mascota = await FindPetAsync(idmascota);
+            mascota.Nombre = nombre;
+            mascota.Raza = raza;
+            mascota.Tipo = tipo;
+            mascota.Peso = peso;
+            mascota.Fecha_Nacimiento = fechanacimiento;
+
+            this.context.Mascotas.Update(mascota);
+            await this.context.SaveChangesAsync();
+            return mascota;
+        }
+
+        public async Task<Mascota> UpdateMascota(int idusuario, int idmascota, string nombre, string raza,
+            string tipo, int peso, DateTime fechanacimiento, string fileName)
+        {
+            Mascota mascota = await FindPetAsync(idmascota);
+            mascota.Nombre = nombre;
+            mascota.Raza = raza;
+            mascota.Tipo = tipo;
+            mascota.Peso = peso;
+            mascota.Fecha_Nacimiento = fechanacimiento;
+            mascota.Imagen = fileName;
+
+            this.context.Mascotas.Update(mascota);
+            await this.context.SaveChangesAsync();
+            return mascota;
+        }
+
+        #endregion
+
+        #region FINDS
+
         public async Task<Usuario> FindUserAsync(int idusuario)
         {
             return await
@@ -204,6 +279,35 @@ namespace MvcPetVet.Repositories
             }
         }
 
+        public async Task<Mascota> FindPetAsync(int idmascota)
+        {
+            return await
+                this.context.Mascotas
+                .FirstOrDefaultAsync(x => x.IdMascota == idmascota);
+        }
+
+        #endregion
+
+        #region GETS
+
+        private int GetMaxIdUsuario()
+        {
+            if (this.context.Usuarios.Count() == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return this.context.Usuarios.Max(z => z.IdUsuario) + 1;
+            }
+        }
+
+        public int GetNumeroVacunas(int idusuario)
+        {
+            return this.context.Vacunas.
+                Where(z => z.IdUsuario == idusuario).Count();
+        }
+
         public List<Mascota> GetMascotas(int idusuario)
         {
             List<Mascota> mascotas = this.context.Mascotas.Where(x => x.IdUsuario == idusuario).ToList();
@@ -216,6 +320,11 @@ namespace MvcPetVet.Repositories
             return tratamientos;
         }
 
+        public List<Vacuna> GetVacunas(int idusuario)
+        {
+            List<Vacuna> vacunas = this.context.Vacunas.Where(x => x.IdUsuario == idusuario).OrderByDescending(x => x.Fecha).ToList();
+            return vacunas;
+        }
 
         public List<Cita> GetCitas(int idusuario)
         {
@@ -228,6 +337,31 @@ namespace MvcPetVet.Repositories
             List<Evento> eventos = this.context.Eventos.Where(x => x.resourceid == idusuario).ToList();
             return eventos;
         }
-        
+
+        public List<Prueba> GetPruebas(int idusuario)
+        {
+            List<Prueba> pruebas = this.context.Pruebas.Where(x => x.IdUsuario == idusuario).OrderByDescending(x => x.Fecha).ToList();
+            return pruebas;
+        }
+
+        public async Task<List<Vacuna>>
+        GetVacunasPaginar(int posicion, int idusuario)
+        {
+            string sql =
+                "SP_VACUNAS_PAGINAR @POSICION, @IDUSUARIO";
+            SqlParameter pamposicion =
+                new SqlParameter("@POSICION", posicion);
+            SqlParameter pamidusuario =
+                new SqlParameter("@IDUSUARIO", idusuario);
+
+            var consulta =
+                this.context.Vacunas.FromSqlRaw(sql, pamposicion, pamidusuario);
+            List<Vacuna> vacunas = await consulta.ToListAsync();
+
+            return vacunas;
+        }
+
+        #endregion
+
     }
 }
