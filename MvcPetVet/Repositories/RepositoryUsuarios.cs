@@ -2,6 +2,9 @@
 using MvcPetVet.Helpers;
 using MvcPetVet.Data;
 using MvcPetVet.Models;
+using System.Data.Common;
+using System.Data;
+using Microsoft.Data.SqlClient;
 
 #region TABLES
 
@@ -90,7 +93,7 @@ namespace MvcPetVet.Repositories
             }
         }
 
-        
+
 
         public async Task RegisterUser(string apodo
             , string email, string password)
@@ -103,7 +106,7 @@ namespace MvcPetVet.Repositories
             user.Telefono = "";
             user.Pass = password;
             user.Imagen = "default_img.webp";
-            
+
 
             //user.Imagen = imagen;
             //CADA USUARIO TENDRA UN SALT DIFERENTE
@@ -148,13 +151,13 @@ namespace MvcPetVet.Repositories
 
 
         public async Task<Usuario> FindUserAsync(int idusuario)
-		{
-			return await
-				this.context.Usuarios
-				.FirstOrDefaultAsync(x => x.IdUsuario == idusuario);
-		}
+        {
+            return await
+                this.context.Usuarios
+                .FirstOrDefaultAsync(x => x.IdUsuario == idusuario);
+        }
 
-		public async Task<Usuario> ExisteUsuario
+        public async Task<Usuario> ExisteUsuario
             (string username, string password)
         {
             Usuario user = new Usuario();
@@ -203,7 +206,7 @@ namespace MvcPetVet.Repositories
 
         public List<Mascota> GetMascotas(int idusuario)
         {
-            List<Mascota> mascotas = this.context.Mascotas.Where( x => x.IdUsuario == idusuario).ToList();
+            List<Mascota> mascotas = this.context.Mascotas.Where(x => x.IdUsuario == idusuario).ToList();
             return mascotas;
         }
 
@@ -219,5 +222,12 @@ namespace MvcPetVet.Repositories
             List<Cita> citas = this.context.Citas.Where(x => x.IdUsuario == idusuario).ToList();
             return citas;
         }
+
+        public List<Evento> GetEventos(int idusuario)
+        {
+            List<Evento> eventos = this.context.Eventos.Where(x => x.resourceid == idusuario).ToList();
+            return eventos;
+        }
+        
     }
 }

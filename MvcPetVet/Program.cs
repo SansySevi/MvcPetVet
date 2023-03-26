@@ -32,6 +32,7 @@ builder.Services.AddTransient<RepositoryUsuarios>();
 builder.Services.AddSingleton<HelperPathProvider>();
 builder.Services.AddSingleton<HelperCryptography>();
 builder.Services.AddSingleton<HelperClaims>();
+builder.Services.AddSingleton<HelperJson>();
 
 builder.Services.AddDbContext<UsuariosContext>
     (options => options.UseSqlServer(connectionString));

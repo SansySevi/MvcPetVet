@@ -5,7 +5,6 @@ using MvcPetVet.Models;
 using MvcPetVet.Repositories;
 using MvcPetVet.Filters;
 using MvcPetVet.Helpers;
-using System.Security.Claims;
 
 namespace MvcPetVet.Controllers
 {
@@ -27,14 +26,7 @@ namespace MvcPetVet.Controllers
 		{
 			return View();
 		}
-
-        [AuthorizeUsers]
-        public IActionResult Calendar()
-        {
-            var userid = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            ViewData["Events"] = JSONListHelper.GetEventListJSONString(_idal.GetMyEvents(userid));
-            return View();
-        }
+        
 
         public IActionResult Register()
 		{
@@ -82,12 +74,6 @@ namespace MvcPetVet.Controllers
 
 		}
 
-		[AuthorizeUsers]
-		public IActionResult DatesCalendar()
-		{
-			List<Cita> citas = this.repo.GetCitas(1);
-			return View();
-		}
 
 		[AuthorizeUsers]
 		public async Task<IActionResult> UserZone(int idusuario)
@@ -132,7 +118,17 @@ namespace MvcPetVet.Controllers
 
         }
 
-		[AuthorizeUsers]
+
+        [AuthorizeUsers]
+        public IActionResult Calendar(int idusuario)
+        {
+			List<Evento> eventos = this.repo.GetEventos(idusuario);
+            ViewData["EVENTOS"] = HelperJson.SerializeObject<List<Evento>>(eventos);
+            return View();
+
+        }
+
+        [AuthorizeUsers]
 		public IActionResult Tratamientos(int idusuario)
 		{
             List<Tratamiento> tratamientos = this.repo.GetTratamientos(idusuario);

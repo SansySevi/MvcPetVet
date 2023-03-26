@@ -19,7 +19,7 @@
             <div class="col-sm-4">
                 <div class="card card-fluid tile-1">
                     <div class="card-body tile slideTextUp">
-                        <a asp-controller="Usuarios" asp-action="Calendar">
+                        <a asp-controller="Usuarios" asp-action="Calendar" asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
                             <div><p>Calendario de citas</p></div>
                             <div><p>Ve todas tus citas</p></div>
                         </a>

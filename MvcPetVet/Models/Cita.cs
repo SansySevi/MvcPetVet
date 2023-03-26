@@ -25,7 +25,5 @@ namespace MvcPetVet.Models
         [Column("DIA_CITA")]
         public DateTime DiaCita { get; set; }
 
-        //[Column("HORA_CITA")]
-        //public TimeOnly HoraCita { get; set; }
     }
 }
