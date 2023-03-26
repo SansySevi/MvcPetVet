@@ -172,6 +172,18 @@ namespace MvcPetVet.Controllers
 
         }
 
+        public IActionResult PedirCita()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult PedirCita(DateOnly date, TimeOnly time)
+        {
+            ViewData["FECHA"] = date + "-" + time;
+            return View();
+        }
+
         [AuthorizeUsers]
 		public IActionResult Tratamientos(int idusuario)
 		{
