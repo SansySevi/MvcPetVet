@@ -173,6 +173,7 @@ namespace MvcPetVet.Controllers
 
         }
 
+        [AuthorizeUsers]
         public IActionResult PedirCita(int idusuario)
         {
             List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
@@ -184,6 +185,7 @@ namespace MvcPetVet.Controllers
             return View();
         }
 
+        [AuthorizeUsers]
         [HttpPost]
         public async Task<IActionResult> PedirCita(int idusuario, int idmascota, string tipo, string fecha, string hora)
         {
@@ -245,6 +247,7 @@ namespace MvcPetVet.Controllers
 
         #endregion
 
+        [AuthorizeUsers]
         public IActionResult FAQs()
         {
             List<FAQ> faqs = this.repo.GetFAQs();
