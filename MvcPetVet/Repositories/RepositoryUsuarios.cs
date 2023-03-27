@@ -8,6 +8,12 @@ using Microsoft.Data.SqlClient;
 
 #region TABLES
 
+//create table SERVICIOS (
+//IDSERVICIO int primary key,
+//NOMBRE nvarchar(50),
+//DESCRIPCION nvarchar(500),
+//)
+
 //create table VACUNAS(
 //  IDVACUNA int primary key, 
 //  IDUSUARIO int, 
@@ -42,7 +48,6 @@ using Microsoft.Data.SqlClient;
 //DESCRIPCION NVARCHAR(150),
 //FECHA DATE
 //)
-
 
 //CREATE TABLE TRATAMIENTOS(
 //IDTRATAMIENTO INT PRIMARY KEY,
@@ -86,14 +91,6 @@ using Microsoft.Data.SqlClient;
 //	ON PRUEBAS.IDMASCOTA = MASCOTAS.IDMASCOTA
 //GO
 
-//CREATE VIEW V_CITAS
-//AS
-//	SELECT IDCITA, CITAS.IDUSUARIO, CITAS.IDMASCOTA, NMASCOTA, TIPO_CITA, DIA_CITA
-//	FROM CITAS
-//	LEFT JOIN MASCOTAS
-//	ON CITAS.IDMASCOTA = MASCOTAS.IDMASCOTA
-//GO
-
 //create VIEW V_VACUNAS
 //as
 //	select IDVACUNA, vacunas.IDUSUARIO, vacunas.IDMASCOTA, NMASCOTA, NVACUNA, LOTE, FECHA, mascotas.IMAGEN
@@ -130,8 +127,7 @@ namespace MvcPetVet.Repositories
         {
             this.context = context;
         }
-
-        
+      
 
         #region FORMS
 
@@ -157,6 +153,19 @@ namespace MvcPetVet.Repositories
             user.Password =
                 HelperCryptography.EncryptPassword(password, user.Salt);
             this.context.Usuarios.Add(user);
+            await this.context.SaveChangesAsync();
+        }
+
+        public async Task CreateCita(int idusuario, int idmascota, string tipo, DateTime fecha)
+        {
+            Cita cita = new Cita();
+            cita.IdCita = this.GetMaxIdCita();
+            cita.TipoCita = tipo;
+            cita.IdMascota= idmascota;
+            cita.IdUsuario= idusuario;
+            cita.DiaCita = fecha;
+
+            this.context.Citas.Add(cita);
             await this.context.SaveChangesAsync();
         }
 
@@ -302,11 +311,31 @@ namespace MvcPetVet.Repositories
             }
         }
 
+        private int GetMaxIdCita()
+        {
+            if (this.context.Citas.Count() == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return this.context.Citas.Max(z => z.IdCita) + 1;
+            }
+        }
+
+
         public int GetNumeroVacunas(int idusuario)
         {
             return this.context.Vacunas.
                 Where(z => z.IdUsuario == idusuario).Count();
         }
+
+        public int GetNumeroProcedimientos(int idusuario)
+        {
+            return this.context.Procedimientos.
+                Where(z => z.IdUsuario == idusuario).Count();
+        }
+
 
         public List<Mascota> GetMascotas(int idusuario)
         {
@@ -326,9 +355,9 @@ namespace MvcPetVet.Repositories
             return vacunas;
         }
 
-        public List<Cita> GetCitas(int idusuario)
+        public List<Cita> GetCitas()
         {
-            List<Cita> citas = this.context.Citas.Where(x => x.IdUsuario == idusuario).ToList();
+            List<Cita> citas = this.context.Citas.ToList();
             return citas;
         }
 
@@ -343,6 +372,7 @@ namespace MvcPetVet.Repositories
             List<Prueba> pruebas = this.context.Pruebas.Where(x => x.IdUsuario == idusuario).OrderByDescending(x => x.Fecha).ToList();
             return pruebas;
         }
+
 
         public async Task<List<Vacuna>>
         GetVacunasPaginar(int posicion, int idusuario)
@@ -359,6 +389,36 @@ namespace MvcPetVet.Repositories
             List<Vacuna> vacunas = await consulta.ToListAsync();
 
             return vacunas;
+        }
+
+        public async Task<List<Procedimiento>>
+        GetProcedimientosPaginar(int posicion, int idusuario)
+        {
+            string sql =
+                "SP_PROCEDIMIENTOS_PAGINAR @POSICION, @IDUSUARIO";
+            SqlParameter pamposicion =
+                new SqlParameter("@POSICION", posicion);
+            SqlParameter pamidusuario =
+                new SqlParameter("@IDUSUARIO", idusuario);
+
+            var consulta =
+                this.context.Procedimientos.FromSqlRaw(sql, pamposicion, pamidusuario);
+            List<Procedimiento> procedimientos = await consulta.ToListAsync();
+
+            return procedimientos;
+        }
+
+
+        public List<Servicio> GetServicios()
+        {
+            List<Servicio> servicios = this.context.Servicios.ToList();
+            return servicios;
+        }
+
+        public List<FAQ> GetFAQs()
+        {
+            List<FAQ> faqs = this.context.FAQs.ToList();
+            return faqs;
         }
 
         #endregion

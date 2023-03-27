@@ -24,7 +24,7 @@
 
     @if (Model != null)
     {
-        <ul class="list-group list-group-horizontal">
+        <ul class="list-group list-group-horizontal" style="display: flex;justify-content: flex-end;">
             @for (int i = 1; i <= numeroregistros; i += 5)
             {
                 <li class="list-group-item list-group-item-dark">
@@ -32,7 +32,7 @@
                asp-action="Vacunas"
                asp-route-posicion="@i"
                asp-route-idusuario="@Context.User.FindFirst(ClaimTypes.NameIdentifier).Value">
-                        Página @numeropagina
+                        @numeropagina
                     </a>
                 </li>
                 numeropagina += 1;

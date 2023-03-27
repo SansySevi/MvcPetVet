@@ -908,3 +908,190 @@ body.nav-active .nav__list-item {
         left: 43px;
         background: #000;
     }
+
+/*SECTION SERVICES*/
+
+.serviceBox {
+    width: 50%;
+    height: 400px;
+    position: relative;
+    float: left;
+    /*padding: 50px;*/
+    z-index: 2;
+    overflow: hidden;
+}
+
+    .serviceBox .separator {
+        width: 100px;
+        max-width: 100px;
+        margin-top: 25px;
+        margin-bottom: 25px
+    }
+
+    .serviceBox h2 {
+        padding-top: 140px;
+        margin-top: 0
+    }
+
+        .serviceBox h2 span {
+            padding: 25px 50px;
+            border: solid 10px #282828
+        }
+
+    .serviceBox i {
+        font-size: 9em
+    }
+
+.introServiceBox {
+    position: relative;
+    z-index: 2;
+    background: url("../images/servicios/service0.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 50% 0,50% 0,50% 0,50% 0;
+    background-repeat: repeat,repeat,repeat,no-repeat
+}
+
+.whiteBox {
+    background: #fff
+}
+
+.blackBox {
+    background: #282828
+}
+
+    .blackBox i {
+        color: #fff
+    }
+
+#servicesSimple {
+    background: #fff
+}
+
+.serviceIconWrapper {
+    padding: 20px
+}
+
+.serviceIcon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 40px;
+    line-height: 40px;
+    margin-top: 3px;
+    float: left;
+    transition: all .3s ease-in-out
+}
+
+.simpleServiceContent {
+    margin-left: 60px
+}
+
+    .simpleServiceContent h4 {
+        letter-spacing: 5px
+    }
+
+.serviceIconWrapper {
+    padding: 20px
+}
+
+.serviceIcon2 {
+    font-size: 40px;
+    line-height: 40px;
+    transition: all .3s ease-in-out;
+    margin-bottom: 20px
+}
+
+.simpleServiceContent2 h4 {
+    letter-spacing: 4px
+}
+
+#text-separator-testimonials h3 span {
+    padding: 25px 50px;
+    border: solid 10px #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #fff
+}
+
+#text-separator-testimonials h3 {
+    padding-top: 100px
+}
+
+.review {
+    text-align: center;
+    padding: 40px
+}
+
+    .review p.titulation {
+        color: #c8c8c8;
+        font-style: italic;
+        font-size: 10px
+    }
+
+    .review h4 {
+        color: #898989;
+        letter-spacing: 0;
+        margin-bottom: 0
+    }
+
+.text-separator-title h2 {
+    padding-top: 100px
+}
+
+#pricing {
+    background-color: #f4f4f4
+}
+
+.tableWrapper {
+    padding: 60px;
+    border: solid 10px #000
+}
+
+    .tableWrapper .separator {
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px
+    }
+
+    .tableWrapper .subscriptionName h2 {
+        letter-spacing: 0
+    }
+
+.subscriptionList ul {
+    list-style: none;
+    padding: 0
+}
+
+.subscriptionPrice {
+    padding-bottom: 10px
+}
+
+    .subscriptionPrice h2 {
+        letter-spacing: 0
+    }
+
+    .subscriptionPrice h2, .subscriptionPrice p {
+        display: inline
+    }
+
+.valign {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+    .valign img {
+        width: 100%;
+    }
+
+.elementvalign {
+    vertical-align: middle
+}
+

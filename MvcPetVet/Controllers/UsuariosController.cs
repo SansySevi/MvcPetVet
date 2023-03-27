@@ -5,6 +5,7 @@ using MvcPetVet.Models;
 using MvcPetVet.Repositories;
 using MvcPetVet.Filters;
 using MvcPetVet.Helpers;
+using System.Globalization;
 
 namespace MvcPetVet.Controllers
 {
@@ -172,15 +173,33 @@ namespace MvcPetVet.Controllers
 
         }
 
-        public IActionResult PedirCita()
+        public IActionResult PedirCita(int idusuario)
         {
+            List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
+            ViewData["MASCOTAS"] = new List<Mascota>(mascotas);
+
+            List<Cita> citas = this.repo.GetCitas() ;
+            ViewData["CITAS"] = HelperJson.SerializeObject<List<Cita>>(citas);
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult PedirCita(DateOnly date, TimeOnly time)
+        public async Task<IActionResult> PedirCita(int idusuario, int idmascota, string tipo, string fecha, string hora)
         {
-            ViewData["FECHA"] = date + "-" + time;
+            string dateTimeString = fecha + " " + hora + ":00.00";
+            DateTime citaDateTime = DateTime.ParseExact(dateTimeString, "yyyy-MM-dd HH:mm:ss.ff", CultureInfo.InvariantCulture);
+
+            await this.repo.CreateCita(idusuario, idmascota, tipo, citaDateTime);
+
+            List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
+            ViewData["MASCOTAS"] = new List<Mascota>(mascotas);
+
+            List<Cita> citas = this.repo.GetCitas();
+            ViewData["CITAS"] = HelperJson.SerializeObject<List<Cita>>(citas);
+
+            ViewData["MENSAJE"] = "Cita solicitada Correctamente";
+            ViewData["FECHA"] = citaDateTime;
             return View();
         }
 
@@ -212,17 +231,24 @@ namespace MvcPetVet.Controllers
         }
 
         [AuthorizeUsers]
-		public IActionResult HistorialVeterinario(int idusuario)
-		{
-			return View();
-		}
+        public async Task<IActionResult> HistorialVeterinario(int? posicion, int idusuario)
+        {
+            if (posicion == null)
+            {
+                posicion = 1;
+            }
+
+            List<Procedimiento> procedimientos = await this.repo.GetProcedimientosPaginar(posicion.Value, idusuario);
+            ViewData["REGISTROS"] = this.repo.GetNumeroProcedimientos(idusuario);
+            return View(procedimientos);
+        }
 
         #endregion
 
         public IActionResult FAQs()
         {
-
-            return View();
+            List<FAQ> faqs = this.repo.GetFAQs();
+            return View(faqs);
         }
     }
 }

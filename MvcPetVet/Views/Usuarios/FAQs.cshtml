@@ -1,68 +1,56 @@
-﻿@{
-	Layout = "_TemplateUser";
-	ViewData["Title"] = "FAQ's";
+﻿@model List<FAQ>
+
+@{
+    Layout = "_TemplateUser";
+    ViewData["Title"] = "FAQ's";
 }
 
 <div class="pt-4 pt-lg-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-10 mx-auto text-center">
-				<!-- Title -->
-				<h1>Frequently Asked Questions</h1>
-				<!-- Info -->
-				<p>have questions? We're here to help you</p>
-				<!-- Search -->
-				<form class="col-lg-8 position-relative mx-auto" style="display:none">
-					<input class="form-control form-control-lg pe-5" type="search" placeholder="Type search words" aria-label="Search">
-					<button class="text-primary-hover text-reset border-0 bg-transparent position-absolute top-50 end-0 translate-middle-y pe-3 py-0" type="submit"><i class="fas fa-search fs-6"></i></button>
-				</form>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <!-- Title -->
+                <h1 style="color:#f4f4f5">Frequently Asked Questions</h1>
+                <!-- Info -->
+                <p>¿Tiene preguntas? Estamos aquí para ayudarte</p>
+                <!-- Search -->
+                @*<form class="col-lg-8 position-relative mx-auto" style="display:none">
+                <input class="form-control form-control-lg pe-5" type="search" placeholder="Type search words" aria-label="Search">
+                <button class="text-primary-hover text-reset border-0 bg-transparent position-absolute top-50 end-0 translate-middle-y pe-3 py-0" type="submit"><i class="fas fa-search fs-6"></i></button>
+                </form>*@
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="pt-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-xl-10 mx-auto">
-				<div class="vstack gap-4">
-					<!-- Card item START -->
-					<div class="card border p-0">
-						<!-- Card header -->
-						<div class="card-header bg-transparent border-bottom p-4">
-							<h5 class="mb-0">Booking</h5>
-						</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 mx-auto">
+                <div class="vstack gap-4">
 
-						<!-- Card body -->
-						<div class="card-body p-4 pt-0">
-							<!-- Faq item -->
-							<div class="mt-4">
-								<h6 class="fw-normal">Can I move my booking to a future date?</h6>
-								<p class="mb-0">Yet remarkably appearance gets him his projection. Diverted endeavor bed peculiar men the not desirous. Acuteness abilities ask can offending furnished fulfilled sex. Warrant fifteen exposed ye at mistake. Blush since so in noisy still built up an again. As young ye hopes no he place means. Partiality diminution gay yet entreaties admiration. In mention perhaps attempt pointed suppose. Unknown ye chamber of warrant of Norland arrived.</p>
-							</div>
+                    @foreach (FAQ item in Model)
+                    {
+                        <!-- Card item START -->
+                        <div class="card border p-0">
+                            <!-- Card header -->
+                            <div class="card-header bg-transparent border-bottom p-4">
+                                <h5 class="mb-0">@item.Nombre</h5>
+                            </div>
 
-							<!-- Faq item -->
-							<div class="mt-4">
-								<h6 class="fw-normal">Can I give my reservation to someone else?</h6>
-								<p class="mb-0">Supposing so be resolving breakfast am or perfectly. It drew a hill from me. Valley by oh twenty direct me so. Departure defective arranging rapturous did believe him all had supported. Family months lasted simple set nature vulgar him. Picture for attempt joy excited ten carried manners talking how. Suspicion neglected the resolving agreement perceived at an. Comfort reached gay perhaps chamber his six detract besides add.</p>
-							</div>
+                            <!-- Card body -->
+                            <div class="card-body p-4 pt-0">
+                                <!-- Faq item -->
+                                <div class="mt-4">
+                                    <p class="mb-0">@item.Descripcion</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card item END -->
+                    }
 
-							<!-- Faq item -->
-							<div class="mt-4">
-								<h6 class="fw-normal">How can I get help with an existing reservation?</h6>
-								<p class="mb-0">Departure defective arranging rapturous did believe him all had supported. Family months lasted simple set nature vulgar him. Picture for attempt joy excited ten carried manners talking how. Suspicion neglected the resolving agreement perceived at an. Comfort reached gay perhaps chamber his six detract besides add.</p>
-							</div>
-
-							<!-- Faq item -->
-							<div class="mt-4">
-								<h6 class="fw-normal">You can change your booking at any time</h6>
-								<p class="mb-0">At the moment, we only accept Credit/Debit cards and Paypal payments. Paypal is the easiest way to make payments online. While checking out your order. Be sure to fill in correct details for fast &amp; hassle-free payment processing.</p>
-							</div>
-						</div>
-					</div>
-					<!-- Card item END -->
-				</div>
-			</div>
-		</div>
-	</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
