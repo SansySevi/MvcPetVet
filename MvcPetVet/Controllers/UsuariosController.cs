@@ -108,7 +108,8 @@ namespace MvcPetVet.Controllers
 
 
 				ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
-                return View(user);
+                List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
+                return View(mascotas);
             } else
 			{
                 Usuario user = await this.repo.UpdateUsuario(idusuario, nombre, apodo,
@@ -117,7 +118,8 @@ namespace MvcPetVet.Controllers
 				this.helperClaims.GetClaims(user);
 
 				ViewData["MENSAJE"] = "CAMBIOS EFECTUADOS CORRECTAMENTE";
-                return View(user);
+                List<Mascota> mascotas = this.repo.GetMascotas(idusuario);
+                return View(mascotas);
             }
 
         }
